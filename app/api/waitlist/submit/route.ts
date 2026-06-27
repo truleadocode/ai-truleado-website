@@ -1,24 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
-import { join } from 'path'
+import { put } from '@vercel/blob'
 import { Resend } from 'resend'
-
-const DATA_FILE = join(process.cwd(), 'data', 'waitlist.json')
-
-function loadEntries() {
-  if (!existsSync(DATA_FILE)) return []
-  try {
-    return JSON.parse(readFileSync(DATA_FILE, 'utf8'))
-  } catch {
-    return []
-  }
-}
-
-function saveEntries(entries: unknown[]) {
-  const dir = join(process.cwd(), 'data')
-  if (!existsSync(dir)) mkdirSync(dir, { recursive: true })
-  writeFileSync(DATA_FILE, JSON.stringify(entries, null, 2))
-}
 
 function thankYouHtml(name: string, role: string) {
   const isAdv = role === 'advertiser'
@@ -102,7 +84,7 @@ function thankYouHtml(name: string, role: string) {
           <tr>
             <td style="padding-top:28px;text-align:center;">
               <p style="margin:0;font-size:12px;font-weight:400;color:rgba(232,227,218,0.2);">
-                © 2025 Truleado · You're receiving this because you signed up at truleado.com
+                © 2026 Truleado · You're receiving this because you signed up at truleado.com
               </p>
             </td>
           </tr>
@@ -126,8 +108,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email' }, { status: 400 })
     }
 
-    // Save entry
-    const entries = loadEntries()
     const entry = {
       id: crypto.randomUUID(),
       name: name.trim(),
@@ -135,8 +115,15 @@ export async function POST(req: NextRequest) {
       role,
       submittedAt: new Date().toISOString(),
     }
-    entries.push(entry)
-    saveEntries(entries)
+
+    // Store each entry as its own blob — no race conditions, works on Vercel
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      await put(`waitlist/${entry.id}.json`, JSON.stringify(entry), {
+        access: 'public',
+        addRandomSuffix: false,
+        contentType: 'application/json',
+      })
+    }
 
     // Send thank-you email
     if (process.env.RESEND_API_KEY) {

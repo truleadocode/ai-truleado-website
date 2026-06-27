@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createHash } from 'crypto'
 
 export async function POST(req: NextRequest) {
   const { password } = await req.json()
@@ -13,14 +12,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Wrong password' }, { status: 401 })
   }
 
-  const token = createHash('sha256').update(expected).digest('hex')
+  // Use a simple hash via Web Crypto (available in Edge/Node without importing 'crypto')
+  const encoder = new TextEncoder()
+  const data = encoder.encode(expected)
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+  const token = Array.from(new Uint8Array(hashBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('')
 
   const res = NextResponse.json({ ok: true })
   res.cookies.set('wl_auth', token, {
     httpOnly: true,
     sameSite: 'lax',
     path: '/',
-    maxAge: 60 * 60 * 24 * 7, // 7 days
+    maxAge: 60 * 60 * 24 * 7,
   })
   return res
 }
