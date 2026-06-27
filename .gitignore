@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Env
+.env.local
+.env*.local
+
+# Waitlist data (real signup data — don't commit)
+data/waitlist.json
+
+# OS
+.DS_Store
