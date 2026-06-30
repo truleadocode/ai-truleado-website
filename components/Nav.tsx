@@ -78,23 +78,6 @@ export default function Nav() {
         </Link>
       </div>
 
-      <div className="flex items-center gap-3">
-        <button
-          onClick={scrollToWaitlist}
-          className="text-[13px] font-semibold text-fg bg-transparent rounded-[7px] px-[18px] py-2 cursor-pointer transition-all duration-200"
-          style={{ border: '1px solid var(--line)' }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'rgba(232,227,218,0.25)'
-            e.currentTarget.style.background = 'var(--faint)'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'var(--line)'
-            e.currentTarget.style.background = 'transparent'
-          }}
-        >
-          Join waitlist
-        </button>
-      </div>
     </nav>
   )
 }

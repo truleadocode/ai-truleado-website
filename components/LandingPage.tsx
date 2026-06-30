@@ -97,9 +97,6 @@ function WhyCards({ items }: { items: WhyData[] }) {
 export default function LandingPage({ initialTab }: { initialTab: Tab }) {
   const [tab, setTab]               = useState<Tab>(initialTab)
   const [pillStyle, setPillStyle]   = useState({ width: 0, translateX: 0 })
-  const [submitted, setSubmitted]   = useState(false)
-  const [formError, setFormError]   = useState('')
-  const [submitting, setSubmitting] = useState(false)
   const [animKey, setAnimKey]       = useState(0)
   const tabARef = useRef<HTMLButtonElement>(null)
   const tabIRef = useRef<HTMLButtonElement>(null)
@@ -134,35 +131,6 @@ export default function LandingPage({ initialTab }: { initialTab: Tab }) {
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const f     = e.currentTarget
-    const name  = (f.elements.namedItem('wlName')  as HTMLInputElement).value.trim()
-    const email = (f.elements.namedItem('wlEmail') as HTMLInputElement).value.trim()
-    const role  = (f.elements.namedItem('wlRole')  as HTMLSelectElement).value
-    if (!name || !email || !role) { setFormError('Please fill in all fields.'); return }
-    if (!/\S+@\S+\.\S+/.test(email)) { setFormError('Please enter a valid email.'); return }
-    setFormError('')
-    setSubmitting(true)
-    try {
-      const res = await fetch('/api/waitlist/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, role }),
-      })
-      if (res.ok) {
-        setSubmitted(true)
-      } else {
-        const data = await res.json()
-        setFormError(data.error || 'Something went wrong. Please try again.')
-      }
-    } catch {
-      setFormError('Network error. Please try again.')
-    } finally {
-      setSubmitting(false)
-    }
-  }
 
   return (
     <>
@@ -249,16 +217,21 @@ export default function LandingPage({ initialTab }: { initialTab: Tab }) {
           </p>
 
           <div className="flex items-center gap-4 justify-center flex-wrap">
-            <button
-              onClick={() => scrollTo('waitlist')}
-              className="inline-flex items-center gap-[9px] text-[14px] font-bold text-white px-[30px] py-[14px] rounded-[8px] border-none cursor-pointer transition-all duration-[350ms]"
-              style={{ background: accent }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)' }}
-            >
-              {tab === 'advertiser' ? 'Get early access' : 'Join as a creator'}
-              <ArrowRight />
-            </button>
+            {tab === 'influencer' && (
+              <button
+                onClick={() => {
+                  const isDev = window.location.hostname === 'localhost'
+                  window.location.href = isDev ? 'http://localhost:3001/influencer' : 'https://app.truleado.com/influencer'
+                }}
+                className="inline-flex items-center gap-[9px] text-[14px] font-bold text-white px-[30px] py-[14px] rounded-[8px] border-none cursor-pointer transition-all duration-[350ms]"
+                style={{ background: accent }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)' }}
+              >
+                Find your next brand deal
+                <ArrowRight />
+              </button>
+            )}
             <button
               onClick={() => scrollTo('how-it-works')}
               className="text-[13px] font-medium bg-transparent border-none cursor-pointer transition-colors duration-200"
@@ -278,8 +251,8 @@ export default function LandingPage({ initialTab }: { initialTab: Tab }) {
       <div id="how-it-works">
         <div key={`how-${animKey}`} className="max-w-[1060px] mx-auto px-10 py-[88px] animate-fadeUp max-[900px]:px-5">
           <p
-            className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.15em] uppercase mb-[14px] transition-colors duration-[400ms] before:content-[''] before:w-[18px] before:h-0.5 before:rounded-sm before:inline-block before:transition-colors before:duration-[400ms]"
-            style={{ color: accent, ['--tw-content' as string]: '' }}
+            className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.15em] uppercase mb-[14px] transition-colors duration-[400ms]"
+            style={{ color: accent }}
           >
             <span className="w-[18px] h-0.5 rounded-sm inline-block" style={{ background: accent }} />
             How it works
@@ -314,110 +287,6 @@ export default function LandingPage({ initialTab }: { initialTab: Tab }) {
         <WhyCards items={tab === 'advertiser' ? advWhy : infWhy} />
       </div>
 
-      <div className="h-px max-w-[1060px] mx-auto" style={{ background: 'var(--line)' }} />
-
-      {/* ── WAITLIST ── */}
-      <section id="waitlist" className="px-10 py-[88px] max-[900px]:px-5">
-        <div className="max-w-[560px] mx-auto text-center">
-          {!submitted && (
-            <div key={`wt-${animKey}`} className="animate-fadeUp">
-              <p
-                className="inline-flex items-center justify-center gap-2 text-[11px] font-bold tracking-[0.15em] uppercase mb-3 transition-colors duration-[400ms]"
-                style={{ color: accent }}
-              >
-                <span className="w-[18px] h-0.5 rounded-sm inline-block" style={{ background: accent }} />
-                {tab === 'advertiser' ? 'Early Access' : 'For Creators'}
-              </p>
-              <h2
-                className="font-extrabold tracking-[-2px] leading-[1.06] mb-3"
-                style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}
-              >
-                {tab === 'advertiser' ? <>Ready to find<br />true leads?</> : <>Get deals<br />that fit you.</>}
-              </h2>
-              <p className="text-[15px] font-normal mb-10" style={{ color: 'var(--muted)' }}>
-                {tab === 'advertiser'
-                  ? 'Join the waitlist and be first in when we launch.'
-                  : "Join the influencer waitlist and we'll reach out at launch."}
-              </p>
-            </div>
-          )}
-
-          {submitted ? (
-            <div
-              className="rounded-xl px-8 py-12"
-              style={{ border: '1px solid var(--line)' }}
-            >
-              <h3 className="text-[20px] font-extrabold tracking-[-0.4px] mb-2">You&apos;re on the list ✦</h3>
-              <p className="text-[14px] font-normal" style={{ color: 'var(--muted)' }}>
-                We&apos;ll reach out as soon as Truleado is ready for you.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-[11px]">
-              <div className="flex gap-[11px] max-[520px]:flex-col">
-                <input
-                  name="wlName"
-                  type="text"
-                  placeholder="Your name"
-                  className="flex-1 rounded-lg px-4 py-[13px] text-[14px] font-normal outline-none transition-colors duration-200 w-full"
-                  style={{
-                    background: 'var(--faint)',
-                    border: '1px solid var(--line)',
-                    color: 'var(--fg)',
-                  }}
-                  onFocus={e => (e.currentTarget.style.borderColor = 'rgba(232,227,218,0.28)')}
-                  onBlur={e => (e.currentTarget.style.borderColor = 'var(--line)')}
-                />
-                <input
-                  name="wlEmail"
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 rounded-lg px-4 py-[13px] text-[14px] font-normal outline-none transition-colors duration-200 w-full"
-                  style={{
-                    background: 'var(--faint)',
-                    border: '1px solid var(--line)',
-                    color: 'var(--fg)',
-                  }}
-                  onFocus={e => (e.currentTarget.style.borderColor = 'rgba(232,227,218,0.28)')}
-                  onBlur={e => (e.currentTarget.style.borderColor = 'var(--line)')}
-                />
-              </div>
-              <select
-                name="wlRole"
-                defaultValue={tab}
-                className="wl-select rounded-lg px-4 py-[13px] pr-10 text-[14px] font-normal outline-none cursor-pointer transition-colors duration-200 w-full"
-                style={{
-                  background: 'var(--faint)',
-                  border: '1px solid var(--line)',
-                  color: 'var(--fg)',
-                }}
-                onFocus={e => (e.currentTarget.style.borderColor = 'rgba(232,227,218,0.28)')}
-                onBlur={e => (e.currentTarget.style.borderColor = 'var(--line)')}
-              >
-                <option value="" disabled>I am a…</option>
-                <option value="advertiser">Advertiser — Brand or Agency</option>
-                <option value="influencer">Influencer / Creator</option>
-              </select>
-              {formError && (
-                <p className="text-[13px] text-left" style={{ color: accent }}>{formError}</p>
-              )}
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full rounded-lg py-[14px] text-[14px] font-bold text-white border-none cursor-pointer transition-all duration-[350ms]"
-                style={{ background: accent, opacity: submitting ? 0.7 : 1 }}
-                onMouseEnter={e => { if (!submitting) e.currentTarget.style.transform = 'translateY(-1px)' }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)' }}
-              >
-                {submitting ? 'Submitting…' : 'Join the waitlist'}
-              </button>
-              <p className="text-[12px] font-normal mt-[10px]" style={{ color: 'rgba(232,227,218,0.22)' }}>
-                No spam. No credit card. Just early access.
-              </p>
-            </form>
-          )}
-        </div>
-      </section>
     </>
   )
 }
