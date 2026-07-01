@@ -7,15 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg:  '#090E1A',
-        bg2: '#0E1420',
-        bg3: '#141B28',
-        fg:  '#E8E3DA',
-        adv: '#E05A3A',
-        inf: '#C49A3C',
+        bg:    '#0E0D20',
+        bg2:   '#15132C',
+        bg3:   '#1C1A38',
+        fg:    '#F8F7FF',
+        brand: '#2A2760',
+        ember: '#D93D2A',
+        acc:   '#9894CC',
+        muted: '#9894CC',
+        dim:   '#635E96',
       },
       fontFamily: {
-        jakarta: ['var(--font-jakarta)', 'sans-serif'],
+        sans:      ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display:   ['var(--font-fraunces)', 'Georgia', 'serif'],
       },
       keyframes: {
         fadeUp: {

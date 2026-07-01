@@ -3,16 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --bg:    #090E1A;
-  --bg2:   #0E1420;
-  --bg3:   #141B28;
-  --fg:    #E8E3DA;
-  --muted: rgba(232,227,218,0.45);
-  --faint: rgba(232,227,218,0.06);
-  --line:  rgba(232,227,218,0.09);
-  --adv:   #E05A3A;
-  --inf:   #C49A3C;
-  --acc:   #E05A3A;
+  /* Surfaces — violet-tinted dark */
+  --bg:    #0E0D20;
+  --bg2:   #15132C;
+  --bg3:   #1C1A38;
+
+  /* Text */
+  --fg:    #F8F7FF;
+  --muted: #9894CC;
+  --dim:   #635E96;
+
+  /* Borders */
+  --line:  #25224A;
+  --line2: #3A3578;
+
+  /* Interactive fills */
+  --faint: rgba(77,72,154,0.10);
+
+  /* Brand tokens */
+  --acc:      #9894CC;   /* brand label / eyebrow / decorative — Violet Ink 300 */
+  --brand-500: #4D489A;  /* Violet Ink 500 — secondary badge/tag tone */
+  --brand:    #2A2760;   /* Violet Ink 700 — primary button bg */
+  --ember:    #D93D2A;   /* Ember Red 500 — single accent CTA per page */
 }
 
 html { scroll-behavior: smooth; }
@@ -27,25 +39,21 @@ body {
   overflow-x: hidden;
 }
 
-/* Inputs and selects inherit font */
 input, select, button, textarea {
   font-family: inherit;
 }
 
-/* Select option background */
 select option {
-  background: #0E1420;
+  background: #15132C;
 }
 
-/* Placeholder color */
 input::placeholder {
-  color: rgba(232,227,218,0.22);
+  color: #3E3A6E;
 }
 
-/* Custom select arrow */
 .wl-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 4.5L11 1' stroke='%23E8E3DA' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round' opacity='.35'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 4.5L11 1' stroke='%239894CC' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
 }

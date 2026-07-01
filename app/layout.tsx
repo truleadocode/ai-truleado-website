@@ -1,13 +1,20 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, Fraunces } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-jakarta',
+  weight: ['400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['300', '400', '600'],
+  variable: '--font-fraunces',
   display: 'swap',
 })
 
@@ -18,8 +25,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={jakarta.variable}>
-      <body className="font-jakarta bg-bg text-fg overflow-x-hidden">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="font-sans bg-bg text-fg overflow-x-hidden">
         <Nav />
         {children}
         <Footer />

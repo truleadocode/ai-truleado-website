@@ -1,0 +1,16 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [
+      "components/LandingPage.tsx"
+    ],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "reason": "Email-safe font stack — web fonts don't render in most email clients (Gmail, Outlook strip @font-face)",
+        "createdAt": "2026-07-01T19:02:32.829Z"
+      }
+    ]
+  }
+}

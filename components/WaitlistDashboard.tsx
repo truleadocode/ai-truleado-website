@@ -9,8 +9,8 @@ const ROLE_LABEL: Record<string, string> = {
 }
 
 const ROLE_COLOR: Record<string, string> = {
-  advertiser: '#E05A3A',
-  influencer: '#C49A3C',
+  advertiser: '#4D489A', // Violet Ink 500
+  influencer: '#9894CC', // Violet Ink 300
 }
 
 export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[] }) {
@@ -39,23 +39,23 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
         {/* Header */}
         <div className="flex items-start justify-between flex-wrap gap-4 mb-10">
           <div>
-            <p className="text-[11px] font-bold tracking-[0.15em] uppercase mb-2" style={{ color: 'var(--acc)' }}>
+            <p className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-2" style={{ color: 'var(--acc)' }}>
               Admin
             </p>
-            <h1 className="text-[32px] font-extrabold tracking-[-1px]" style={{ color: 'var(--fg)' }}>
+            <h1 className="text-[32px] font-semibold tracking-[-0.02em]" style={{ color: 'var(--fg)' }}>
               Waitlist
             </h1>
           </div>
           <button
             onClick={copyEmails}
-            className="text-[13px] font-semibold px-4 py-2 rounded-[7px] cursor-pointer transition-all duration-200"
+            className="text-[13px] font-medium px-4 py-2 rounded-[7px] cursor-pointer transition-all duration-200"
             style={{
               color: 'var(--fg)',
               background: 'transparent',
               border: '1px solid var(--line)',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.borderColor = 'rgba(232,227,218,0.25)'
+              e.currentTarget.style.borderColor = 'var(--line2)'
               e.currentTarget.style.background = 'var(--faint)'
             }}
             onMouseLeave={e => {
@@ -68,11 +68,11 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
         </div>
 
         {/* Stats */}
-        <div className="grid gap-3 mb-8" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <div className="grid gap-3 mb-8 grid-cols-3 max-[640px]:grid-cols-1">
           {[
             { label: 'Total signups', value: entries.length, color: 'var(--fg)' },
-            { label: 'Advertisers',   value: advertisers,    color: '#E05A3A' },
-            { label: 'Influencers',   value: influencers,    color: '#C49A3C' },
+            { label: 'Advertisers',   value: advertisers,    color: ROLE_COLOR.advertiser },
+            { label: 'Influencers',   value: influencers,    color: ROLE_COLOR.influencer },
           ].map(s => (
             <div
               key={s.label}
@@ -80,7 +80,7 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
               style={{ background: 'var(--bg2)', border: '1px solid var(--line)' }}
             >
               <p className="text-[12px] font-medium mb-1" style={{ color: 'var(--muted)' }}>{s.label}</p>
-              <p className="text-[32px] font-extrabold tracking-[-1.5px]" style={{ color: s.color }}>
+              <p className="text-[32px] font-semibold tracking-[-0.02em]" style={{ color: s.color }}>
                 {s.value}
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
               color: 'var(--fg)',
               width: '240px',
             }}
-            onFocus={e => (e.currentTarget.style.borderColor = 'rgba(232,227,218,0.28)')}
+            onFocus={e => (e.currentTarget.style.borderColor = 'var(--line2)')}
             onBlur={e => (e.currentTarget.style.borderColor = 'var(--line)')}
           />
           <div className="flex gap-2">
@@ -109,10 +109,10 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className="text-[12px] font-semibold px-3 py-[7px] rounded-[6px] cursor-pointer border transition-all duration-150 capitalize"
+                className="text-[12px] font-medium px-3 py-[7px] rounded-[6px] cursor-pointer border transition-all duration-150 capitalize"
                 style={{
                   background: filter === f ? (f === 'all' ? 'var(--faint)' : ROLE_COLOR[f] + '22') : 'transparent',
-                  borderColor: filter === f ? (f === 'all' ? 'rgba(232,227,218,0.2)' : ROLE_COLOR[f] + '66') : 'var(--line)',
+                  borderColor: filter === f ? (f === 'all' ? 'var(--line2)' : ROLE_COLOR[f] + '66') : 'var(--line)',
                   color: filter === f ? (f === 'all' ? 'var(--fg)' : ROLE_COLOR[f]) : 'var(--muted)',
                 }}
               >
@@ -143,7 +143,7 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
                   {['Name', 'Email', 'Role', 'Signed up'].map(h => (
                     <th
                       key={h}
-                      className="text-left px-5 py-3 text-[11px] font-bold tracking-[0.1em] uppercase"
+                      className="text-left px-5 py-3 text-[11px] font-semibold tracking-[0.1em] uppercase"
                       style={{ color: 'var(--muted)' }}
                     >
                       {h}
@@ -183,7 +183,7 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
                       </td>
                       <td className="px-5 py-3">
                         <span
-                          className="inline-block text-[11px] font-bold tracking-[0.08em] uppercase px-2 py-1 rounded-[5px]"
+                          className="inline-block text-[11px] font-semibold tracking-[0.08em] uppercase px-2 py-1 rounded-[5px]"
                           style={{
                             background: (ROLE_COLOR[entry.role] || 'var(--acc)') + '18',
                             color: ROLE_COLOR[entry.role] || 'var(--acc)',
@@ -196,7 +196,7 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
                         {new Date(entry.submittedAt).toLocaleDateString('en-US', {
                           month: 'short', day: 'numeric', year: 'numeric',
                         })}{' '}
-                        <span style={{ color: 'rgba(232,227,218,0.3)' }}>
+                        <span style={{ color: 'var(--dim)' }}>
                           {new Date(entry.submittedAt).toLocaleTimeString('en-US', {
                             hour: '2-digit', minute: '2-digit',
                           })}
@@ -210,7 +210,7 @@ export default function WaitlistDashboard({ entries }: { entries: WaitlistEntry[
           </div>
         )}
 
-        <p className="mt-4 text-[12px] text-right" style={{ color: 'rgba(232,227,218,0.2)' }}>
+        <p className="mt-4 text-[12px] text-right" style={{ color: 'var(--dim)' }}>
           Showing {visible.length} of {entries.length} entries
         </p>
       </div>

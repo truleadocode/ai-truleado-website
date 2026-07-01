@@ -1,19 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-
-const LogoMark = () => (
-  <span
-    className="w-5 h-5 rounded-[5px] flex items-center justify-center flex-shrink-0"
-    style={{ background: 'var(--acc)' }}
-  >
-    <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-      <path d="M2 10L6 2L10 10" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M3.5 7h5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  </span>
-)
 
 const InstagramIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -46,31 +33,18 @@ const TikTokIcon = () => (
 const socialLinkBase = 'w-[34px] h-[34px] rounded-lg flex items-center justify-center transition-all duration-200 no-underline'
 
 export default function Footer() {
-  const router = useRouter()
-
-  const goToWaitlist = () => {
-    router.push('/#waitlist')
-    setTimeout(() => {
-      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
-    }, 100)
-  }
-
   return (
     <footer style={{ borderTop: '1px solid var(--line)' }} className="pt-12 pb-9 px-[52px] max-[900px]:px-5">
       <div
-        className="max-w-[1060px] mx-auto pb-11 grid gap-10 max-[900px]:grid-cols-[1fr_1fr] max-[520px]:grid-cols-1"
-        style={{
-          gridTemplateColumns: '1fr 1fr 1fr 1fr',
-          borderBottom: '1px solid var(--line)',
-        }}
+        className="max-w-[1060px] mx-auto pb-11 grid gap-10 grid-cols-4 max-[900px]:grid-cols-2 max-[520px]:grid-cols-1"
+        style={{ borderBottom: '1px solid var(--line)' }}
       >
         {/* Brand */}
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-[7px] text-[17px] font-extrabold text-fg no-underline mb-[14px]"
+            className="inline-flex items-center gap-[7px] text-[17px] font-semibold tracking-[-0.02em] text-fg no-underline mb-[14px]"
           >
-            <LogoMark />
             Truleado
           </Link>
           <p className="text-[13px] font-normal leading-[1.65] max-w-[200px]" style={{ color: 'var(--muted)' }}>
@@ -78,10 +52,10 @@ export default function Footer() {
           </p>
           <div className="flex gap-[10px] mt-5">
             {[
-              { href: '#',   icon: <InstagramIcon />, label: 'Instagram' },
-              { href: '#',   icon: <XIcon />,         label: 'X (Twitter)' },
-              { href: 'https://www.linkedin.com/in/hall-peter/', icon: <LinkedInIcon />, label: 'LinkedIn', external: true },
-              { href: '#',   icon: <TikTokIcon />,    label: 'TikTok' },
+              { href: 'https://www.instagram.com/truleado/',        icon: <InstagramIcon />, label: 'Instagram',   external: true },
+              { href: 'https://x.com/truleado',                    icon: <XIcon />,         label: 'X (Twitter)', external: true },
+              { href: 'https://www.linkedin.com/company/truleado', icon: <LinkedInIcon />,  label: 'LinkedIn',    external: true },
+              { href: 'https://www.tiktok.com/@truleado',          icon: <TikTokIcon />,    label: 'TikTok',      external: true },
             ].map(s => (
               <a
                 key={s.label}
@@ -92,7 +66,7 @@ export default function Footer() {
                 className={socialLinkBase}
                 style={{ border: '1px solid var(--line)', color: 'var(--muted)' }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'rgba(232,227,218,0.2)'
+                  e.currentTarget.style.borderColor = 'var(--line2)'
                   e.currentTarget.style.background = 'var(--faint)'
                   e.currentTarget.style.color = 'var(--fg)'
                 }}
@@ -110,7 +84,7 @@ export default function Footer() {
 
         {/* Platform */}
         <div>
-          <h4 className="text-[12px] font-bold tracking-[0.1em] uppercase mb-4" style={{ color: 'var(--muted)' }}>
+          <h4 className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-4" style={{ color: 'var(--muted)' }}>
             Platform
           </h4>
           <ul className="flex flex-col gap-[10px] list-none">
@@ -118,29 +92,20 @@ export default function Footer() {
               <Link href="/?tab=advertiser" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >For Advertisers</Link>
+              >For advertisers</Link>
             </li>
             <li>
               <Link href="/?tab=influencer" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >For Influencers</Link>
-            </li>
-            <li>
-              <button
-                onClick={goToWaitlist}
-                className="text-[14px] font-normal bg-transparent border-none cursor-pointer p-0 transition-colors duration-200"
-                style={{ color: 'var(--muted)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >Join Waitlist</button>
+              >For influencers</Link>
             </li>
           </ul>
         </div>
 
         {/* Company */}
         <div>
-          <h4 className="text-[12px] font-bold tracking-[0.1em] uppercase mb-4" style={{ color: 'var(--muted)' }}>
+          <h4 className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-4" style={{ color: 'var(--muted)' }}>
             Company
           </h4>
           <ul className="flex flex-col gap-[10px] list-none">
@@ -168,7 +133,7 @@ export default function Footer() {
 
         {/* Legal */}
         <div>
-          <h4 className="text-[12px] font-bold tracking-[0.1em] uppercase mb-4" style={{ color: 'var(--muted)' }}>
+          <h4 className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-4" style={{ color: 'var(--muted)' }}>
             Legal
           </h4>
           <ul className="flex flex-col gap-[10px] list-none">
@@ -176,28 +141,28 @@ export default function Footer() {
               <a href="#" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >Privacy Policy</a>
+              >Privacy policy</a>
             </li>
             <li>
               <a href="#" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >Terms of Service</a>
+              >Terms of service</a>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="max-w-[1060px] mx-auto flex items-center justify-between pt-7 flex-wrap gap-[10px]">
-        <p className="text-[13px] font-normal" style={{ color: 'rgba(232,227,218,0.25)' }}>
+        <p className="text-[13px] font-normal" style={{ color: 'var(--dim)' }}>
           © 2026 Truleado. All rights reserved.
         </p>
         <div className="flex gap-5">
           {['Privacy', 'Terms'].map(t => (
             <a key={t} href="#" className="text-[13px] font-normal no-underline transition-colors duration-200"
-              style={{ color: 'rgba(232,227,218,0.3)' }}
+              style={{ color: 'var(--dim)' }}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--muted)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(232,227,218,0.3)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--dim)')}
             >{t}</a>
           ))}
         </div>
