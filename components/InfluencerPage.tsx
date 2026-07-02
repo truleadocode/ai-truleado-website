@@ -5,20 +5,26 @@ import Toggle from '@/components/Toggle'
 const EMBER = '#D93D2A'
 const ACC   = '#9894CC'
 
+const ArrowRight = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
 interface StepData { n: string; title: string; body: string }
 interface WhyData  { icon: string; title: string; body: string }
 
-const advSteps: StepData[] = [
-  { n: '01', title: 'Post your brief',         body: 'Tell us your niche, budget, goals, and timeline. Takes under 5 minutes.' },
-  { n: '02', title: 'We do the work',          body: 'Our AI searches the database, scores matches, and reaches out to the right influencers on your behalf.' },
-  { n: '03', title: 'Influencers are briefed', body: 'We walk each matched influencer through your campaign. Only interested ones move forward.' },
-  { n: '04', title: 'You close the deal',      body: 'Receive a shortlist of warm, briefed, campaign-ready influencers. Just show up for the final call.' },
+const infSteps: StepData[] = [
+  { n: '01', title: 'Upload screenshots',     body: 'Share screenshots of your social accounts. No API access, no passwords, no fuss.' },
+  { n: '02', title: 'AI builds your profile', body: 'We extract your niche, audience demographics, engagement, and content style automatically.' },
+  { n: '03', title: 'We pitch you to brands', body: 'When a campaign fits, we reach out with a full brief. No guessing, no cold emails from strangers.' },
+  { n: '04', title: 'You say yes or no',      body: 'Interested? We set you up with the brand. Not for you? No pressure, no hard feelings.' },
 ]
 
-const advWhy: WhyData[] = [
-  { icon: '🎯', title: 'Micro & nano only',         body: 'We work exclusively with micro and nano influencers — the ones with real trust, real audiences, and real engagement.' },
-  { icon: '⚡', title: 'Campaign-ready, not leads', body: 'Every influencer you receive has already been briefed and said yes. No chasing, no ghosting.' },
-  { icon: '🤖', title: 'AI does the heavy lifting', body: 'Matching, outreach, briefing — all AI. Faster than any agency, cheaper than hiring in-house.' },
+const infWhy: WhyData[] = [
+  { icon: '✅', title: 'Only relevant brands',    body: 'We only ping you for campaigns that genuinely match your niche and audience. No spam, ever.' },
+  { icon: '🤝', title: 'We handle the talking',  body: 'No awkward back-and-forths with brands. We manage conversations so you focus on creating.' },
+  { icon: '🆓', title: 'Always free for creators', body: 'No commission cuts, no subscription. We make money from advertisers, not you.' },
 ]
 
 function Steps({ items }: { items: StepData[] }) {
@@ -77,9 +83,14 @@ function Eyebrow({ label }: { label: string }) {
   )
 }
 
-export default function LandingPage() {
+export default function InfluencerPage() {
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+
+  const goToApp = () => {
+    const isDev = window.location.hostname === 'localhost'
+    window.location.href = isDev ? 'http://localhost:3001/influencer' : 'https://app.truleado.com/influencer'
+  }
 
   return (
     <>
@@ -95,30 +106,40 @@ export default function LandingPage() {
           }}
         />
 
-        <Toggle active="advertiser" />
+        <Toggle active="influencer" />
 
         {/* hero copy */}
         <div className="relative z-[2] animate-fadeUp">
           <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[22px]" style={{ color: ACC }}>
             <span className="w-5 h-0.5 rounded-sm inline-block" style={{ background: ACC }} />
-            AI influencer marketing
+            Built for creators
           </p>
 
           <h1
             className="font-display font-light leading-[1.06] tracking-[-0.025em] mb-6 mx-auto max-w-[820px]"
             style={{ fontSize: 'clamp(42px, 6vw, 76px)', fontVariationSettings: "'opsz' 72" }}
           >
-            Find influencers<br />who <em style={{ color: EMBER }}>actually</em> convert.
+            Brand deals that<br /><em style={{ color: EMBER }}>fit</em> who you are.
           </h1>
 
           <p
             className="text-[17px] font-normal max-w-[460px] mx-auto mb-11 leading-[1.75]"
             style={{ color: 'var(--dim)' }}
           >
-            Post your brief. We handle research, outreach, and vetting. You show up for the final call.
+            Upload your profile once. We match you, handle the talking, and ping you when a deal is ready.
           </p>
 
           <div className="flex items-center gap-4 justify-center flex-wrap">
+            <button
+              onClick={goToApp}
+              className="inline-flex items-center gap-[9px] text-[14px] font-medium text-white px-[30px] py-[14px] rounded-lg border-none cursor-pointer active:scale-[0.97]"
+              style={{ background: EMBER, transition: 'transform 160ms cubic-bezier(0.23, 1, 0.32, 1)' }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)' }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)' }}
+            >
+              Find your next brand deal
+              <ArrowRight />
+            </button>
             <button
               onClick={() => scrollTo('how-it-works')}
               className="text-[13px] font-medium bg-transparent border-none cursor-pointer transition-colors duration-200"
@@ -142,9 +163,9 @@ export default function LandingPage() {
             className="font-display font-light tracking-[-0.025em] leading-[1.07] max-w-[440px] mb-[52px]"
             style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', fontVariationSettings: "'opsz' 48" }}
           >
-            Brief in.<br />Campaign-ready out.
+            Your profile<br />works for you.
           </h2>
-          <Steps items={advSteps} />
+          <Steps items={infSteps} />
         </div>
       </div>
 
@@ -157,9 +178,9 @@ export default function LandingPage() {
           className="font-display font-light tracking-[-0.025em] leading-[1.07] max-w-[440px] mb-[52px]"
           style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', fontVariationSettings: "'opsz' 48" }}
         >
-          Less noise.<br />More results.
+          Deals that<br />respect your work.
         </h2>
-        <WhyCards items={advWhy} />
+        <WhyCards items={infWhy} />
       </div>
     </>
   )

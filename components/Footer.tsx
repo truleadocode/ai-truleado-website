@@ -89,13 +89,13 @@ export default function Footer() {
           </h4>
           <ul className="flex flex-col gap-[10px] list-none">
             <li>
-              <Link href="/?tab=advertiser" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
+              <Link href="/" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
               >For advertisers</Link>
             </li>
             <li>
-              <Link href="/?tab=influencer" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
+              <Link href="/influencer" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
               >For influencers</Link>

@@ -22,7 +22,7 @@ export default function Nav() {
 
   const goToTab = (tab: 'advertiser' | 'influencer') => {
     setMenuOpen(false)
-    router.push(`/?tab=${tab}`)
+    router.push(tab === 'advertiser' ? '/' : '/influencer')
   }
 
   const closeMenu = () => setMenuOpen(false)
