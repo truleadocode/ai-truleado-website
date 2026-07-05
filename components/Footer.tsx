@@ -123,10 +123,10 @@ export default function Footer() {
               >Founder</a>
             </li>
             <li>
-              <a href="#" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
+              <a href="mailto:support@truleado.com" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >Contact</a>
+              >support@truleado.com</a>
             </li>
           </ul>
         </div>

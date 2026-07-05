@@ -57,13 +57,13 @@ export default function Nav() {
             Influencers
           </button>
           <Link
-            href="/about"
+            href="/reviews"
             className="text-[13px] font-medium no-underline transition-colors duration-200"
             style={{ color: 'var(--muted)' }}
             onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
           >
-            About
+            Reviews
           </Link>
         </div>
 
@@ -105,12 +105,12 @@ export default function Nav() {
             For influencers
           </button>
           <Link
-            href="/about"
+            href="/reviews"
             onClick={closeMenu}
             className="text-[15px] font-medium no-underline px-5 py-4"
             style={{ color: 'var(--muted)' }}
           >
-            About
+            Reviews
           </Link>
         </div>
       </div>
