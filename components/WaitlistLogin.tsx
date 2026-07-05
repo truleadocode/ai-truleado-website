@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 export default function WaitlistLogin() {
@@ -38,16 +39,8 @@ export default function WaitlistLogin() {
     >
       <div style={{ width: '100%', maxWidth: '380px' }}>
         {/* Logo */}
-        <div className="flex items-center gap-2 mb-10 justify-center">
-          <span
-            className="w-6 h-6 rounded-[6px] flex items-center justify-center"
-            style={{ background: 'var(--brand)' }}
-          >
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 10L6 2L10 10" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M3.5 7h5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          </span>
+        <div className="flex items-center gap-[9px] mb-10 justify-center">
+          <Image src="/logo-mark-t-tile.png" alt="Truleado" width={26} height={26} />
           <span className="text-[17px] font-semibold" style={{ color: 'var(--fg)' }}>Truleado</span>
         </div>
 

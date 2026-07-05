@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 
 const InstagramIcon = () => (
@@ -43,8 +44,9 @@ export default function Footer() {
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-[7px] text-[17px] font-semibold tracking-[-0.02em] text-fg no-underline mb-[14px]"
+            className="inline-flex items-center gap-[9px] text-[17px] font-semibold tracking-[-0.02em] text-fg no-underline mb-[14px]"
           >
+            <Image src="/logo-mark-t-tile.png" alt="Truleado" width={26} height={26} />
             Truleado
           </Link>
           <p className="text-[13px] font-normal leading-[1.65] max-w-[200px]" style={{ color: 'var(--muted)' }}>

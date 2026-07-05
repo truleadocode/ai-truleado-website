@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -33,7 +34,8 @@ export default function Nav() {
       style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)' }}
     >
       <div className="flex items-center justify-between h-16 px-[52px] max-[900px]:px-5">
-        <Link href="/" onClick={closeMenu} className="flex items-center gap-[7px] text-[18px] font-semibold tracking-[-0.02em] text-fg no-underline">
+        <Link href="/" onClick={closeMenu} className="flex items-center gap-3 text-[19px] font-semibold tracking-[-0.02em] text-fg no-underline">
+          <Image src="/logo-mark-t-tile.png" alt="Truleado" width={38} height={38} priority />
           Truleado
         </Link>
 

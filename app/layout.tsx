@@ -22,6 +22,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: 'Truleado — AI Influencer Marketing',
   description: 'AI influencer marketing. True matches, faster. Built for micro and nano creators.',
+  icons: {
+    icon: '/favicon-t.png',
+    shortcut: '/favicon-t.png',
+    apple: '/logo-mark-t-tile.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

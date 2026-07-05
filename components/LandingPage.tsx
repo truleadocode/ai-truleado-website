@@ -2,8 +2,8 @@
 
 import Toggle from '@/components/Toggle'
 import {
-  Divider, Faq, FinalCta, HowItWorks, WhyTruleado,
-  type FaqItem, type StepData, type WhyData,
+  Divider, Faq, FinalCta, HowItWorks, Pricing, WhyTruleado,
+  type FaqItem, type PricingPlan, type StepData, type WhyData,
 } from '@/components/Sections'
 
 const EMBER = '#D93D2A'
@@ -27,9 +27,36 @@ const advWhy: WhyData[] = [
   { art: 'ai',     title: 'AI handles the matching, outreach, and briefing.', body: 'The search, the scoring, the first message, the follow-up — all automated. That is the entire reason we can do this for a flat fee per campaign instead of a monthly retainer.' },
 ]
 
+const advPlans: PricingPlan[] = [
+  {
+    label: 'First brief',
+    price: 'Free',
+    tagline: 'Post one campaign brief and get a full shortlist — on us. See who says yes before you pay anything.',
+    features: [
+      'One campaign brief, no cost',
+      'Full AI matching & scoring',
+      'Creators briefed and confirmed for you',
+      'A campaign-ready shortlist to review',
+    ],
+  },
+  {
+    label: 'Unlimited',
+    price: '$99',
+    period: '/ month',
+    tagline: 'Every brief after your first, for one flat monthly price. Run as many campaigns as you want.',
+    features: [
+      'Unlimited campaign briefs',
+      'Unlimited creator matching',
+      'Every match briefed and confirmed',
+      'Cancel anytime, no contract',
+    ],
+    highlight: true,
+  },
+]
+
 const advFaq: FaqItem[] = [
   { q: 'How is this different from an influencer marketplace?', a: "Marketplaces hand you a search bar and wish you luck. Truleado hands you a shortlist of influencers who have already been matched to your brief, briefed on your campaign, and said yes. You skip discovery, outreach, and vetting entirely." },
-  { q: 'What does it cost?', a: "You set the budget in your brief — that covers the influencer fees. Truleado charges advertisers a fee per campaign, and we'll show you the exact number before you commit to anything." },
+  { q: 'What does it cost?', a: "Your first campaign brief is free — full matching, briefing, and a shortlist, on us. After that, it's $99 a month for unlimited briefs. No per-campaign fees, no contracts." },
   { q: 'What size of influencers do you work with?', a: 'Micro and nano creators — roughly 1,000 to 100,000 followers. For most campaigns they outperform bigger names on engagement and cost per result, because their audiences actually trust them.' },
   { q: 'How long until I get matches?', a: 'Most briefs receive their first campaign-ready shortlist within a few days. Complex niches can take a little longer — we prioritize match quality over speed.' },
   { q: 'What if a match does not work out?', a: "You only move forward with influencers you approve. If someone on the shortlist isn't right, tell us why and we replace them — refining the brief is part of the service." },
@@ -47,7 +74,7 @@ export default function LandingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden px-6 pt-[100px] pb-20">
+      <section className="flex flex-col items-center justify-center text-center relative overflow-hidden px-6 pt-[140px] pb-[72px]">
         {/* grid overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -62,23 +89,18 @@ export default function LandingPage() {
 
         {/* hero copy */}
         <div className="relative z-[2] animate-fadeUp">
-          <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[22px]" style={{ color: 'var(--acc)' }}>
-            <span className="w-5 h-0.5 rounded-sm inline-block" style={{ background: 'var(--acc)' }} />
-            For marketing teams tired of chasing creators
-          </p>
-
           <h1
-            className="font-display font-light leading-[1.1] tracking-[-0.02em] mb-6 mx-auto max-w-[860px]"
-            style={{ fontSize: 'clamp(36px, 5.4vw, 66px)', fontVariationSettings: "'opsz' 66" }}
+            className="font-display font-light leading-[1.05] tracking-[-0.025em] mt-10 mb-6 mx-auto max-w-[780px]"
+            style={{ fontSize: 'clamp(40px, 6.2vw, 78px)', fontVariationSettings: "'opsz' 78" }}
           >
-            How to run an influencer campaign<br />without the <em style={{ color: EMBER }}>cold outreach</em>.
+            Meet creators<br />who <em style={{ color: EMBER }}>already said yes</em>.
           </h1>
 
           <p
-            className="text-[17px] font-normal max-w-[540px] mx-auto mb-11 leading-[1.8]"
+            className="text-[17px] font-normal max-w-[460px] mx-auto mb-11 leading-[1.75]"
             style={{ color: 'var(--dim)' }}
           >
-            Write one brief. Truleado matches it against every micro and nano creator on our roster, briefs the strongest fits on your behalf, and hands you only the ones who already said yes. No cold outreach. No spreadsheet of maybes. No retainer.
+            Post one brief. We match it, message every fit, and only bring you creators who confirmed they&apos;re in. No searching. No cold DMs. No ghosting.
           </p>
 
           <div className="flex items-center gap-4 justify-center flex-wrap">
@@ -99,7 +121,7 @@ export default function LandingPage() {
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
               onMouseLeave={e => (e.currentTarget.style.color = 'var(--dim)')}
             >
-              See how it works ↓
+              See a real shortlist ↓
             </button>
           </div>
         </div>
@@ -115,6 +137,16 @@ export default function LandingPage() {
 
       <Divider />
 
+      <Pricing
+        heading={<>Your first brief<br />is on us.</>}
+        sub="See a real, campaign-ready shortlist before you pay a cent. After that, one flat price for as many briefs as you need."
+        plans={advPlans}
+        buttonLabel="Post a Campaign"
+        onCta={goToApp}
+      />
+
+      <Divider />
+
       <Faq items={advFaq} />
 
       <Divider />
@@ -124,7 +156,7 @@ export default function LandingPage() {
         sub="Five minutes to post. A campaign-ready shortlist of influencers who already agreed to your terms on the other side."
         buttonLabel="Post a Campaign"
         path="/advertiser"
-        ps="You only pay a fee per campaign — no retainer, no subscription, and we show you the number before you commit to anything."
+        ps="Your first brief is free. After that, it's $99 a month for unlimited briefs — no contract, cancel anytime."
       />
     </>
   )

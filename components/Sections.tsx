@@ -457,6 +457,109 @@ export function WhyTruleado({ heading, items }: { heading: React.ReactNode; item
   )
 }
 
+/* ── Pricing ──────────────────────────────────────────────── */
+
+const CheckIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+    <circle cx="8" cy="8" r="8" fill="var(--brand)" />
+    <path d="M4.5 8.2l2.2 2.2 4.8-5" stroke="#F8F7FF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+export interface PricingPlan {
+  label: string
+  price: string
+  period?: string
+  tagline: string
+  features: string[]
+  highlight?: boolean
+}
+
+export function Pricing({
+  heading,
+  sub,
+  plans,
+  buttonLabel,
+  onCta,
+}: {
+  heading: React.ReactNode
+  sub: string
+  plans: PricingPlan[]
+  buttonLabel: string
+  onCta: () => void
+}) {
+  return (
+    <div className="max-w-[1060px] mx-auto px-10 py-[88px] max-[900px]:px-5">
+      <Eyebrow label="Pricing" />
+      <h2
+        className="font-display font-light tracking-[-0.025em] leading-[1.07] max-w-[520px] mb-4"
+        style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', fontVariationSettings: "'opsz' 48" }}
+      >
+        {heading}
+      </h2>
+      <p className="text-[16px] font-normal leading-[1.75] max-w-[460px] mb-[52px]" style={{ color: 'var(--dim)' }}>
+        {sub}
+      </p>
+      <div className="grid gap-[18px] grid-cols-2 max-[720px]:grid-cols-1">
+        {plans.map(p => (
+          <div
+            key={p.label}
+            className="rounded-xl p-8"
+            style={p.highlight
+              ? { background: 'var(--brand)', border: '1px solid var(--brand)' }
+              : { background: 'var(--bg2)', border: '1px solid var(--line)' }}
+          >
+            <p
+              className="text-[11px] font-semibold tracking-[0.12em] uppercase mb-3"
+              style={{ color: p.highlight ? 'rgba(248,247,255,0.7)' : 'var(--acc)' }}
+            >
+              {p.label}
+            </p>
+            <div className="flex items-baseline gap-[6px] mb-2">
+              <span
+                className="font-display font-light tracking-[-0.02em]"
+                style={{ fontSize: '46px', color: p.highlight ? '#F8F7FF' : 'var(--fg)', fontVariationSettings: "'opsz' 48" }}
+              >
+                {p.price}
+              </span>
+              {p.period && (
+                <span className="text-[14px] font-medium" style={{ color: p.highlight ? 'rgba(248,247,255,0.7)' : 'var(--dim)' }}>
+                  {p.period}
+                </span>
+              )}
+            </div>
+            <p
+              className="text-[14px] font-normal leading-[1.6] mb-6"
+              style={{ color: p.highlight ? 'rgba(248,247,255,0.8)' : 'var(--dim)' }}
+            >
+              {p.tagline}
+            </p>
+            <ul className="flex flex-col gap-3 mb-8">
+              {p.features.map(f => (
+                <li key={f} className="flex items-start gap-[10px] text-[14px] font-normal leading-[1.5]" style={{ color: p.highlight ? '#F8F7FF' : 'var(--fg)' }}>
+                  {p.highlight
+                    ? <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0 mt-[1px]"><circle cx="8" cy="8" r="8" fill="rgba(248,247,255,0.18)" /><path d="M4.5 8.2l2.2 2.2 4.8-5" stroke="#F8F7FF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    : <CheckIcon />}
+                  <span className="mt-[1px]">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={onCta}
+              className="w-full rounded-lg py-[13px] text-[14px] font-medium border-none cursor-pointer active:scale-[0.98]"
+              style={p.highlight
+                ? { background: '#F8F7FF', color: 'var(--brand)', transition: 'transform 160ms cubic-bezier(0.23, 1, 0.32, 1)' }
+                : { background: 'transparent', color: 'var(--fg)', border: '1px solid var(--line2)', transition: 'transform 160ms cubic-bezier(0.23, 1, 0.32, 1)' }}
+            >
+              {buttonLabel}
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 /* ── FAQ ──────────────────────────────────────────────────── */
 
 export interface FaqItem { q: string; a: string }
