@@ -7,15 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg:    '#0E0D20',
-        bg2:   '#15132C',
-        bg3:   '#1C1A38',
-        fg:    '#F8F7FF',
-        brand: '#2A2760',
-        ember: '#D93D2A',
-        acc:   '#9894CC',
-        muted: '#9894CC',
-        dim:   '#635E96',
+        bg:    'var(--bg)',
+        bg2:   'var(--bg2)',
+        bg3:   'var(--bg3)',
+        fg:    'var(--fg)',
+        brand: 'var(--brand)',
+        ember: 'var(--ember)',
+        acc:   'var(--acc)',
+        muted: 'var(--muted)',
+        dim:   'var(--dim)',
       },
       fontFamily: {
         sans:      ['var(--font-inter)', 'system-ui', 'sans-serif'],

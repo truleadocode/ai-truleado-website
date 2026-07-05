@@ -3,28 +3,28 @@
 @tailwind utilities;
 
 :root {
-  /* Surfaces — violet-tinted dark */
-  --bg:    #0E0D20;
-  --bg2:   #15132C;
-  --bg3:   #1C1A38;
+  /* Surfaces — light, per docs/brand-guidelines.html */
+  --bg:    #F8F7FF;   /* page background */
+  --bg2:   #FFFFFF;   /* card / surface */
+  --bg3:   #EEEDF8;   /* tinted surface (avatars, icon tiles) */
 
   /* Text */
-  --fg:    #F8F7FF;
-  --muted: #9894CC;
-  --dim:   #635E96;
+  --fg:    #110F2E;   /* primary text */
+  --muted: #4D489A;   /* eyebrows, labels, links — Violet Ink 500 */
+  --dim:   #3E3A6E;   /* secondary / body copy — Violet Ink 600 */
 
   /* Borders */
-  --line:  #25224A;
-  --line2: #3A3578;
+  --line:  #D9D7F0;
+  --line2: #B8B4D8;
 
   /* Interactive fills */
-  --faint: rgba(77,72,154,0.10);
+  --faint: rgba(77,72,154,0.06);
 
   /* Brand tokens */
-  --acc:      #9894CC;   /* brand label / eyebrow / decorative — Violet Ink 300 */
+  --acc:       #4D489A;  /* brand label / eyebrow / decorative — Violet Ink 500 */
   --brand-500: #4D489A;  /* Violet Ink 500 — secondary badge/tag tone */
-  --brand:    #2A2760;   /* Violet Ink 700 — primary button bg */
-  --ember:    #D93D2A;   /* Ember Red 500 — single accent CTA per page */
+  --brand:     #2A2760;  /* Violet Ink 700 — primary button bg */
+  --ember:     #D93D2A;  /* Ember Red 500 — single accent CTA per page */
 }
 
 html { scroll-behavior: smooth; }
@@ -44,16 +44,37 @@ input, select, button, textarea {
 }
 
 select option {
-  background: #15132C;
+  background: #FFFFFF;
 }
 
 input::placeholder {
-  color: #3E3A6E;
+  color: #B8B4D8;
 }
 
 .wl-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 4.5L11 1' stroke='%239894CC' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 4.5L11 1' stroke='%234D489A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
+}
+
+/* ── Section illustration animations — transform/opacity only ── */
+@keyframes floatY {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-5px); }
+}
+@keyframes pulseSoft {
+  from { opacity: 0.35; }
+  to   { opacity: 1; }
+}
+@keyframes sweepX {
+  from { transform: translateX(-3px); }
+  to   { transform: translateX(3px); }
+}
+.anim-float  { animation: floatY 2.8s ease-in-out infinite alternate; }
+.anim-pulse  { animation: pulseSoft 1.8s ease-in-out infinite alternate; }
+.anim-sweep  { animation: sweepX 2.2s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-float, .anim-pulse, .anim-sweep { animation: none; }
 }

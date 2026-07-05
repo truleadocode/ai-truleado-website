@@ -1,9 +1,12 @@
 'use client'
 
 import Toggle from '@/components/Toggle'
+import {
+  Divider, Faq, FinalCta, HowItWorks, WhyTruleado,
+  type FaqItem, type StepData, type WhyData,
+} from '@/components/Sections'
 
 const EMBER = '#D93D2A'
-const ACC   = '#9894CC'
 
 const ArrowRight = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -11,77 +14,26 @@ const ArrowRight = () => (
   </svg>
 )
 
-interface StepData { n: string; title: string; body: string }
-interface WhyData  { icon: string; title: string; body: string }
-
 const infSteps: StepData[] = [
-  { n: '01', title: 'Upload screenshots',     body: 'Share screenshots of your social accounts. No API access, no passwords, no fuss.' },
-  { n: '02', title: 'AI builds your profile', body: 'We extract your niche, audience demographics, engagement, and content style automatically.' },
-  { n: '03', title: 'We pitch you to brands', body: 'When a campaign fits, we reach out with a full brief. No guessing, no cold emails from strangers.' },
-  { n: '04', title: 'You say yes or no',      body: 'Interested? We set you up with the brand. Not for you? No pressure, no hard feelings.' },
+  { n: '01', art: 'upload', tag: 'Upload', title: 'Share a few screenshots.', body: 'Drop in screenshots of your Instagram, TikTok, or YouTube analytics. No API connections, no passwords, no access to your accounts — the pictures are genuinely all we need to get started.' },
+  { n: '02', art: 'profile', tag: 'Under the hood', title: 'AI turns them into your profile.', body: 'Our AI reads your niche, audience demographics, engagement quality, and content style straight from the screenshots — and builds the profile brands get matched against. You never fill out a form.' },
+  { n: '03', art: 'pitch', tag: 'The ping', title: 'We text you when a deal fits.', body: 'When a campaign genuinely matches your profile, you get one message with the full picture — the brand, the deliverables, and the money. No newsletters, no maybes, no cold emails from strangers.' },
+  { n: '04', art: 'choice', tag: 'Your call', title: 'Accept it, or pass. Simple.', body: 'Interested? We introduce you to the brand with the scope and payment already agreed, and you just create. Not feeling it? Pass with one tap — no pressure, no hard feelings, and it never counts against you.' },
 ]
 
 const infWhy: WhyData[] = [
-  { icon: '✅', title: 'Only relevant brands',    body: 'We only ping you for campaigns that genuinely match your niche and audience. No spam, ever.' },
-  { icon: '🤝', title: 'We handle the talking',  body: 'No awkward back-and-forths with brands. We manage conversations so you focus on creating.' },
-  { icon: '🆓', title: 'Always free for creators', body: 'No commission cuts, no subscription. We make money from advertisers, not you.' },
+  { art: 'match', title: 'Only relevant brands',     body: 'We only ping you for campaigns that genuinely match your niche and audience. No spam, ever.' },
+  { art: 'talk',  title: 'We handle the talking',    body: 'No awkward back-and-forths with brands. We manage conversations so you focus on creating.' },
+  { art: 'free',  title: 'Always free for creators', body: 'No commission cuts, no subscription. We make money from advertisers, not you.' },
 ]
 
-function Steps({ items }: { items: StepData[] }) {
-  return (
-    <div
-      className="grid gap-px rounded-xl overflow-hidden grid-cols-4 max-[900px]:grid-cols-2 max-[520px]:grid-cols-1"
-      style={{
-        background: 'var(--line)',
-        border: '1px solid var(--line)',
-      }}
-    >
-      {items.map(s => (
-        <div key={s.n} className="px-7 pt-9 pb-10" style={{ background: 'var(--bg2)' }}>
-          <p className="text-[11px] font-semibold tracking-[0.12em] mb-6" style={{ color: ACC }}>
-            {s.n}
-          </p>
-          <h3 className="text-[16px] font-semibold tracking-[-0.2px] mb-[10px] leading-[1.3]">{s.title}</h3>
-          <p className="text-[14px] font-normal leading-[1.7]" style={{ color: 'var(--dim)' }}>{s.body}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function WhyCards({ items }: { items: WhyData[] }) {
-  return (
-    <div className="grid gap-[14px] grid-cols-3 max-[900px]:grid-cols-1">
-      {items.map(w => (
-        <div
-          key={w.title}
-          className="rounded-xl p-7 pb-9 transition-all duration-[250ms]"
-          style={{ background: 'var(--bg2)', border: '1px solid var(--line)' }}
-          onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--line2)')}
-          onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--line)')}
-        >
-          <div
-            className="w-9 h-9 rounded-[9px] flex items-center justify-center text-[16px] mb-5"
-            style={{ background: 'var(--faint)', border: '1px solid var(--line)' }}
-          >
-            {w.icon}
-          </div>
-          <h3 className="text-[15px] font-semibold tracking-[-0.1px] mb-2">{w.title}</h3>
-          <p className="text-[14px] font-normal leading-[1.7]" style={{ color: 'var(--dim)' }}>{w.body}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[14px]" style={{ color: ACC }}>
-      <span className="w-[18px] h-0.5 rounded-sm inline-block" style={{ background: ACC }} />
-      {label}
-    </p>
-  )
-}
+const infFaq: FaqItem[] = [
+  { q: 'Does it really cost me nothing?', a: 'Really. No commission on your deals, no subscription, no hidden cut. Advertisers pay Truleado for the matching service — the deal money is yours.' },
+  { q: 'Why screenshots instead of connecting my accounts?', a: "Because you shouldn't have to hand over passwords or API access to get brand deals. Screenshots give our AI everything it needs — your niche, engagement, and audience — with zero access to your accounts." },
+  { q: 'How small can my following be?', a: 'Nano creators start around 1,000 followers. Brands come to us specifically for smaller creators with genuine engagement, so a tight, loyal audience matters more than a big number.' },
+  { q: 'How often will I hear from you?', a: "Only when there's a real campaign that fits you. No newsletters, no weekly nudges, no spray-and-pray briefs. Quiet inbox until there's money on the table." },
+  { q: 'What happens after I say yes to a deal?', a: 'We introduce you to the brand with everything already agreed — scope, deliverables, and payment. You create the content; the logistics are handled.' },
+]
 
 export default function InfluencerPage() {
   const scrollTo = (id: string) =>
@@ -110,8 +62,8 @@ export default function InfluencerPage() {
 
         {/* hero copy */}
         <div className="relative z-[2] animate-fadeUp">
-          <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[22px]" style={{ color: ACC }}>
-            <span className="w-5 h-0.5 rounded-sm inline-block" style={{ background: ACC }} />
+          <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[22px]" style={{ color: 'var(--acc)' }}>
+            <span className="w-5 h-0.5 rounded-sm inline-block" style={{ background: 'var(--acc)' }} />
             Built for creators
           </p>
 
@@ -153,35 +105,26 @@ export default function InfluencerPage() {
         </div>
       </section>
 
-      <div className="h-px max-w-[1060px] mx-auto" style={{ background: 'var(--line)' }} />
+      <Divider />
 
-      {/* ── HOW IT WORKS ── */}
-      <div id="how-it-works">
-        <div className="max-w-[1060px] mx-auto px-10 py-[88px] animate-fadeUp max-[900px]:px-5">
-          <Eyebrow label="How it works" />
-          <h2
-            className="font-display font-light tracking-[-0.025em] leading-[1.07] max-w-[440px] mb-[52px]"
-            style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', fontVariationSettings: "'opsz' 48" }}
-          >
-            Your profile<br />works for you.
-          </h2>
-          <Steps items={infSteps} />
-        </div>
-      </div>
+      <HowItWorks heading={<>Your profile<br />works for you.</>} items={infSteps} />
 
-      <div className="h-px max-w-[1060px] mx-auto" style={{ background: 'var(--line)' }} />
+      <Divider />
 
-      {/* ── WHY TRULEADO ── */}
-      <div className="max-w-[1060px] mx-auto px-10 py-[88px] animate-fadeUp max-[900px]:px-5">
-        <Eyebrow label="Why Truleado" />
-        <h2
-          className="font-display font-light tracking-[-0.025em] leading-[1.07] max-w-[440px] mb-[52px]"
-          style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', fontVariationSettings: "'opsz' 48" }}
-        >
-          Deals that<br />respect your work.
-        </h2>
-        <WhyCards items={infWhy} />
-      </div>
+      <WhyTruleado heading={<>Deals that<br />respect your work.</>} items={infWhy} />
+
+      <Divider />
+
+      <Faq items={infFaq} />
+
+      <Divider />
+
+      <FinalCta
+        heading={<>Your audience is<br />worth real deals.</>}
+        sub="Upload your profile once and let the right brands come to you."
+        buttonLabel="Find your next brand deal"
+        path="/influencer"
+      />
     </>
   )
 }

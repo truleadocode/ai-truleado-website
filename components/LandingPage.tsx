@@ -1,85 +1,48 @@
 'use client'
 
 import Toggle from '@/components/Toggle'
+import {
+  Divider, Faq, FinalCta, HowItWorks, WhyTruleado,
+  type FaqItem, type StepData, type WhyData,
+} from '@/components/Sections'
 
 const EMBER = '#D93D2A'
-const ACC   = '#9894CC'
 
-interface StepData { n: string; title: string; body: string }
-interface WhyData  { icon: string; title: string; body: string }
+const ArrowRight = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
 
 const advSteps: StepData[] = [
-  { n: '01', title: 'Post your brief',         body: 'Tell us your niche, budget, goals, and timeline. Takes under 5 minutes.' },
-  { n: '02', title: 'We do the work',          body: 'Our AI searches the database, scores matches, and reaches out to the right influencers on your behalf.' },
-  { n: '03', title: 'Influencers are briefed', body: 'We walk each matched influencer through your campaign. Only interested ones move forward.' },
-  { n: '04', title: 'You close the deal',      body: 'Receive a shortlist of warm, briefed, campaign-ready influencers. Just show up for the final call.' },
+  { n: '01', art: 'brief', tag: 'Post', title: 'Post your campaign brief.', body: 'Tell us what you’re promoting, your budget, the deliverables you need, and your ideal creator profile — niche, audience, country, age. It takes under five minutes, and it’s the last piece of admin work you’ll do.' },
+  { n: '02', art: 'search', tag: 'Under the hood', title: 'Our AI scores every creator against it.', body: 'The moment your brief lands, our matching engine scores every micro and nano creator on the roster against it — niche fit, audience overlap, engagement quality, past performance. Only the strongest fits move to the next step.' },
+  { n: '03', art: 'chat', tag: 'Briefing', title: 'We brief the matches for you.', body: 'No cold outreach on your plate. We walk each matched creator through your campaign — scope, deliverables, payment — and only the ones who genuinely want in move forward. Ghosting and dead-end threads never reach you.' },
+  { n: '04', art: 'deal', tag: 'Close', title: 'You get a campaign-ready shortlist.', body: 'What arrives isn’t a list of leads — it’s creators who already know your campaign and said yes. Review the shortlist, pick your favorites, and show up for the final call. That’s the whole job.' },
 ]
 
 const advWhy: WhyData[] = [
-  { icon: '🎯', title: 'Micro & nano only',         body: 'We work exclusively with micro and nano influencers — the ones with real trust, real audiences, and real engagement.' },
-  { icon: '⚡', title: 'Campaign-ready, not leads', body: 'Every influencer you receive has already been briefed and said yes. No chasing, no ghosting.' },
-  { icon: '🤖', title: 'AI does the heavy lifting', body: 'Matching, outreach, briefing — all AI. Faster than any agency, cheaper than hiring in-house.' },
+  { art: 'target', title: 'We only use micro and nano creators.', body: 'No celebrities, no mega-influencers, no rented reach. Every creator on our roster has between 1,000 and 100,000 followers — small enough that their audience still trusts them, which is precisely why they sell.' },
+  { art: 'ready',  title: 'Your shortlist has already said yes.', body: 'Before a single name reaches you, that creator has read your brief, agreed to the deliverables, and confirmed the price. You are not opening a negotiation. You are choosing a winner.' },
+  { art: 'ai',     title: 'AI handles the matching, outreach, and briefing.', body: 'The search, the scoring, the first message, the follow-up — all automated. That is the entire reason we can do this for a flat fee per campaign instead of a monthly retainer.' },
 ]
 
-function Steps({ items }: { items: StepData[] }) {
-  return (
-    <div
-      className="grid gap-px rounded-xl overflow-hidden grid-cols-4 max-[900px]:grid-cols-2 max-[520px]:grid-cols-1"
-      style={{
-        background: 'var(--line)',
-        border: '1px solid var(--line)',
-      }}
-    >
-      {items.map(s => (
-        <div key={s.n} className="px-7 pt-9 pb-10" style={{ background: 'var(--bg2)' }}>
-          <p className="text-[11px] font-semibold tracking-[0.12em] mb-6" style={{ color: ACC }}>
-            {s.n}
-          </p>
-          <h3 className="text-[16px] font-semibold tracking-[-0.2px] mb-[10px] leading-[1.3]">{s.title}</h3>
-          <p className="text-[14px] font-normal leading-[1.7]" style={{ color: 'var(--dim)' }}>{s.body}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function WhyCards({ items }: { items: WhyData[] }) {
-  return (
-    <div className="grid gap-[14px] grid-cols-3 max-[900px]:grid-cols-1">
-      {items.map(w => (
-        <div
-          key={w.title}
-          className="rounded-xl p-7 pb-9 transition-all duration-[250ms]"
-          style={{ background: 'var(--bg2)', border: '1px solid var(--line)' }}
-          onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--line2)')}
-          onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--line)')}
-        >
-          <div
-            className="w-9 h-9 rounded-[9px] flex items-center justify-center text-[16px] mb-5"
-            style={{ background: 'var(--faint)', border: '1px solid var(--line)' }}
-          >
-            {w.icon}
-          </div>
-          <h3 className="text-[15px] font-semibold tracking-[-0.1px] mb-2">{w.title}</h3>
-          <p className="text-[14px] font-normal leading-[1.7]" style={{ color: 'var(--dim)' }}>{w.body}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[14px]" style={{ color: ACC }}>
-      <span className="w-[18px] h-0.5 rounded-sm inline-block" style={{ background: ACC }} />
-      {label}
-    </p>
-  )
-}
+const advFaq: FaqItem[] = [
+  { q: 'How is this different from an influencer marketplace?', a: "Marketplaces hand you a search bar and wish you luck. Truleado hands you a shortlist of influencers who have already been matched to your brief, briefed on your campaign, and said yes. You skip discovery, outreach, and vetting entirely." },
+  { q: 'What does it cost?', a: "You set the budget in your brief — that covers the influencer fees. Truleado charges advertisers a fee per campaign, and we'll show you the exact number before you commit to anything." },
+  { q: 'What size of influencers do you work with?', a: 'Micro and nano creators — roughly 1,000 to 100,000 followers. For most campaigns they outperform bigger names on engagement and cost per result, because their audiences actually trust them.' },
+  { q: 'How long until I get matches?', a: 'Most briefs receive their first campaign-ready shortlist within a few days. Complex niches can take a little longer — we prioritize match quality over speed.' },
+  { q: 'What if a match does not work out?', a: "You only move forward with influencers you approve. If someone on the shortlist isn't right, tell us why and we replace them — refining the brief is part of the service." },
+]
 
 export default function LandingPage() {
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+
+  const goToApp = () => {
+    const isDev = window.location.hostname === 'localhost'
+    window.location.href = isDev ? 'http://localhost:3001/advertiser' : 'https://app.truleado.com/advertiser'
+  }
 
   return (
     <>
@@ -99,26 +62,36 @@ export default function LandingPage() {
 
         {/* hero copy */}
         <div className="relative z-[2] animate-fadeUp">
-          <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[22px]" style={{ color: ACC }}>
-            <span className="w-5 h-0.5 rounded-sm inline-block" style={{ background: ACC }} />
-            AI influencer marketing
+          <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase mb-[22px]" style={{ color: 'var(--acc)' }}>
+            <span className="w-5 h-0.5 rounded-sm inline-block" style={{ background: 'var(--acc)' }} />
+            For marketing teams tired of chasing creators
           </p>
 
           <h1
-            className="font-display font-light leading-[1.06] tracking-[-0.025em] mb-6 mx-auto max-w-[820px]"
-            style={{ fontSize: 'clamp(42px, 6vw, 76px)', fontVariationSettings: "'opsz' 72" }}
+            className="font-display font-light leading-[1.1] tracking-[-0.02em] mb-6 mx-auto max-w-[860px]"
+            style={{ fontSize: 'clamp(36px, 5.4vw, 66px)', fontVariationSettings: "'opsz' 66" }}
           >
-            Find influencers<br />who <em style={{ color: EMBER }}>actually</em> convert.
+            How to run an influencer campaign<br />without the <em style={{ color: EMBER }}>cold outreach</em>.
           </h1>
 
           <p
-            className="text-[17px] font-normal max-w-[460px] mx-auto mb-11 leading-[1.75]"
+            className="text-[17px] font-normal max-w-[540px] mx-auto mb-11 leading-[1.8]"
             style={{ color: 'var(--dim)' }}
           >
-            Post your brief. We handle research, outreach, and vetting. You show up for the final call.
+            Write one brief. Truleado matches it against every micro and nano creator on our roster, briefs the strongest fits on your behalf, and hands you only the ones who already said yes. No cold outreach. No spreadsheet of maybes. No retainer.
           </p>
 
           <div className="flex items-center gap-4 justify-center flex-wrap">
+            <button
+              onClick={goToApp}
+              className="inline-flex items-center gap-[9px] text-[14px] font-medium text-white px-[30px] py-[14px] rounded-lg border-none cursor-pointer active:scale-[0.97]"
+              style={{ background: EMBER, transition: 'transform 160ms cubic-bezier(0.23, 1, 0.32, 1)' }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)' }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)' }}
+            >
+              Post a Campaign
+              <ArrowRight />
+            </button>
             <button
               onClick={() => scrollTo('how-it-works')}
               className="text-[13px] font-medium bg-transparent border-none cursor-pointer transition-colors duration-200"
@@ -132,35 +105,27 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <div className="h-px max-w-[1060px] mx-auto" style={{ background: 'var(--line)' }} />
+      <Divider />
 
-      {/* ── HOW IT WORKS ── */}
-      <div id="how-it-works">
-        <div className="max-w-[1060px] mx-auto px-10 py-[88px] animate-fadeUp max-[900px]:px-5">
-          <Eyebrow label="How it works" />
-          <h2
-            className="font-display font-light tracking-[-0.025em] leading-[1.07] max-w-[440px] mb-[52px]"
-            style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', fontVariationSettings: "'opsz' 48" }}
-          >
-            Brief in.<br />Campaign-ready out.
-          </h2>
-          <Steps items={advSteps} />
-        </div>
-      </div>
+      <HowItWorks heading={<>Brief in.<br />Campaign-ready out.</>} items={advSteps} />
 
-      <div className="h-px max-w-[1060px] mx-auto" style={{ background: 'var(--line)' }} />
+      <Divider />
 
-      {/* ── WHY TRULEADO ── */}
-      <div className="max-w-[1060px] mx-auto px-10 py-[88px] animate-fadeUp max-[900px]:px-5">
-        <Eyebrow label="Why Truleado" />
-        <h2
-          className="font-display font-light tracking-[-0.025em] leading-[1.07] max-w-[440px] mb-[52px]"
-          style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', fontVariationSettings: "'opsz' 48" }}
-        >
-          Less noise.<br />More results.
-        </h2>
-        <WhyCards items={advWhy} />
-      </div>
+      <WhyTruleado heading={<>Why this works<br />so much faster.</>} items={advWhy} />
+
+      <Divider />
+
+      <Faq items={advFaq} />
+
+      <Divider />
+
+      <FinalCta
+        heading={<>Write the brief.<br />We&apos;ll find who says yes.</>}
+        sub="Five minutes to post. A campaign-ready shortlist of influencers who already agreed to your terms on the other side."
+        buttonLabel="Post a Campaign"
+        path="/advertiser"
+        ps="You only pay a fee per campaign — no retainer, no subscription, and we show you the number before you commit to anything."
+      />
     </>
   )
 }
