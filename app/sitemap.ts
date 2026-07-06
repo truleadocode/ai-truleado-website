@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { competitors } from '@/content/competitors'
+import { posts } from '@/content/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://truleado.com'
@@ -13,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/reviews`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.6 },
     { url: `${base}/privacy`, lastModified: now, changeFrequency: 'yearly' as const, priority: 0.3 },
     { url: `${base}/terms`, lastModified: now, changeFrequency: 'yearly' as const, priority: 0.3 },
+    { url: `${base}/blog`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.6 },
+    { url: `${base}/tools`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.5 },
   ]
 
   const comparePages = competitors.map(c => ({
@@ -22,5 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...comparePages]
+  const blogPages = posts.map(p => ({
+    url: `${base}/blog/${p.slug}`,
+    lastModified: new Date(p.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [...staticPages, ...comparePages, ...blogPages]
 }

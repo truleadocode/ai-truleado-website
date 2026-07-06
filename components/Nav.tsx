@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import ResourcesDropdown from '@/components/ResourcesDropdown'
 
 const MenuIcon = ({ open }: { open: boolean }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -59,6 +60,16 @@ export default function Nav() {
           >
             Reviews
           </Link>
+          <Link
+            href="/blog"
+            className="text-[13px] font-medium no-underline transition-colors duration-200"
+            style={{ color: 'var(--muted)' }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+          >
+            Blog
+          </Link>
+          <ResourcesDropdown />
         </div>
 
         {/* Mobile menu toggle */}
@@ -108,6 +119,15 @@ export default function Nav() {
           >
             Reviews
           </Link>
+          <Link
+            href="/blog"
+            onClick={closeMenu}
+            className="text-left text-[15px] font-medium no-underline px-5 py-4"
+            style={{ color: 'var(--muted)' }}
+          >
+            Blog
+          </Link>
+          <ResourcesDropdown variant="mobile" onNavigate={closeMenu} />
         </div>
       </div>
     </nav>
