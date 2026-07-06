@@ -10,9 +10,22 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://truleado.com/compare' },
 }
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://truleado.com' },
+    { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://truleado.com/compare' },
+  ],
+}
+
 export default function CompareIndexPage() {
   return (
     <section className="px-10 pt-[140px] pb-[100px] max-[900px]:px-5">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <div className="max-w-[1060px] mx-auto text-center mb-[56px]">
         <Eyebrow label="Comparisons" center />
         <h1

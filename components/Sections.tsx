@@ -480,14 +480,18 @@ export function Pricing({
   sub,
   plans,
   buttonLabel,
-  onCta,
+  path,
 }: {
   heading: React.ReactNode
   sub: string
   plans: PricingPlan[]
   buttonLabel: string
-  onCta: () => void
+  path: '/advertiser' | '/influencer'
 }) {
+  const onCta = () => {
+    const isDev = window.location.hostname === 'localhost'
+    window.location.href = isDev ? `http://localhost:3001${path}` : `https://app.truleado.com${path}`
+  }
   return (
     <div className="max-w-[1060px] mx-auto px-10 py-[88px] max-[900px]:px-5">
       <Eyebrow label="Pricing" />

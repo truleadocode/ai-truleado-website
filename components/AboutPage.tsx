@@ -26,9 +26,29 @@ const values = [
   },
 ]
 
+const aboutJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  url: 'https://truleado.com/about',
+  name: 'About Truleado',
+  description: "Truleado was built to fix influencer marketing's matching problem using AI-powered campaign matching and automated outreach for micro and nano creators.",
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Peter Hall',
+    jobTitle: 'Founder & CEO',
+    worksFor: { '@id': 'https://truleado.com/#organization' },
+    sameAs: 'https://www.linkedin.com/in/hall-peter/',
+  },
+}
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
+
       {/* ── ABOUT HERO ── */}
       <div className="pt-[128px] px-10 pb-0 max-w-[1060px] mx-auto max-[900px]:px-5">
         <p

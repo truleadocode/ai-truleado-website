@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 const MenuIcon = ({ open }: { open: boolean }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -18,14 +17,7 @@ const MenuIcon = ({ open }: { open: boolean }) => (
 )
 
 export default function Nav() {
-  const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
-
-  const goToTab = (tab: 'advertiser' | 'influencer') => {
-    setMenuOpen(false)
-    router.push(tab === 'advertiser' ? '/' : '/influencer')
-  }
-
   const closeMenu = () => setMenuOpen(false)
 
   return (
@@ -40,24 +32,24 @@ export default function Nav() {
         </Link>
 
         <div className="flex items-center gap-8 max-[900px]:hidden">
-          <button
-            onClick={() => goToTab('advertiser')}
-            className="text-[13px] font-medium cursor-pointer bg-transparent border-none transition-colors duration-200"
+          <Link
+            href="/"
+            className="text-[13px] font-medium no-underline transition-colors duration-200"
             style={{ color: 'var(--muted)' }}
             onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
           >
             Advertisers
-          </button>
-          <button
-            onClick={() => goToTab('influencer')}
-            className="text-[13px] font-medium cursor-pointer bg-transparent border-none transition-colors duration-200"
+          </Link>
+          <Link
+            href="/influencer"
+            className="text-[13px] font-medium no-underline transition-colors duration-200"
             style={{ color: 'var(--muted)' }}
             onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
           >
             Influencers
-          </button>
+          </Link>
           <Link
             href="/reviews"
             className="text-[13px] font-medium no-underline transition-colors duration-200"
@@ -92,20 +84,22 @@ export default function Nav() {
         }}
       >
         <div className="overflow-hidden flex flex-col">
-          <button
-            onClick={() => goToTab('advertiser')}
-            className="text-left text-[15px] font-medium cursor-pointer bg-transparent border-none px-5 py-4"
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="text-left text-[15px] font-medium no-underline px-5 py-4"
             style={{ color: 'var(--muted)' }}
           >
             For advertisers
-          </button>
-          <button
-            onClick={() => goToTab('influencer')}
-            className="text-left text-[15px] font-medium cursor-pointer bg-transparent border-none px-5 py-4"
+          </Link>
+          <Link
+            href="/influencer"
+            onClick={closeMenu}
+            className="text-left text-[15px] font-medium no-underline px-5 py-4"
             style={{ color: 'var(--muted)' }}
           >
             For influencers
-          </button>
+          </Link>
           <Link
             href="/reviews"
             onClick={closeMenu}

@@ -1,7 +1,14 @@
+import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { list } from '@vercel/blob'
 import WaitlistLogin from '@/components/WaitlistLogin'
 import WaitlistDashboard from '@/components/WaitlistDashboard'
+
+export const metadata: Metadata = {
+  title: 'Join the Waitlist — Truleado',
+  description: 'Join the Truleado waitlist for early access to AI influencer campaign matching.',
+  robots: { index: false, follow: false },
+}
 
 export interface WaitlistEntry {
   id: string

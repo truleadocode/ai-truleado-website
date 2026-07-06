@@ -1,18 +1,11 @@
-'use client'
-
 import Toggle from '@/components/Toggle'
+import HeroActions from '@/components/HeroActions'
 import {
   Divider, Faq, FinalCta, HowItWorks, Pricing, WhyTruleado,
   type FaqItem, type PricingPlan, type StepData, type WhyData,
 } from '@/components/Sections'
 
 const EMBER = '#D93D2A'
-
-const ArrowRight = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
 
 const advSteps: StepData[] = [
   { n: '01', art: 'brief', tag: 'Post', title: 'Post your campaign brief.', body: 'Tell us what you’re promoting, your budget, the deliverables you need, and your ideal creator profile — niche, audience, country, age. It takes under five minutes, and it’s the last piece of admin work you’ll do.' },
@@ -62,17 +55,56 @@ const advFaq: FaqItem[] = [
   { q: 'What if a match does not work out?', a: "You only move forward with influencers you approve. If someone on the shortlist isn't right, tell us why and we replace them — refining the brief is part of the service." },
 ]
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: advFaq.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const softwareAppJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Truleado',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: 'https://truleado.com',
+  description: 'AI influencer marketing platform that matches brands with pre-briefed micro and nano creators. Post a campaign brief, get a shortlist of creators who already said yes.',
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'First Campaign Brief',
+      price: '0',
+      priceCurrency: 'USD',
+      description: 'First campaign brief is completely free. Full AI matching, briefing, and a campaign-ready shortlist.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Unlimited Plan',
+      price: '99',
+      priceCurrency: 'USD',
+      priceSpecification: { '@type': 'UnitPriceSpecification', price: '99', priceCurrency: 'USD', unitText: 'MONTH' },
+      description: 'Unlimited campaign briefs per month. Cancel anytime.',
+    },
+  ],
+  provider: { '@id': 'https://truleado.com/#organization' },
+}
+
 export default function LandingPage() {
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-
-  const goToApp = () => {
-    const isDev = window.location.hostname === 'localhost'
-    window.location.href = isDev ? 'http://localhost:3001/advertiser' : 'https://app.truleado.com/advertiser'
-  }
-
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* ── HERO ── */}
       <section className="flex flex-col items-center justify-center text-center relative overflow-hidden px-6 pt-[140px] pb-[72px]">
         {/* grid overlay */}
@@ -103,27 +135,7 @@ export default function LandingPage() {
             Post one brief. We match it, message every fit, and only bring you creators who confirmed they&apos;re in. No searching. No cold DMs. No ghosting.
           </p>
 
-          <div className="flex items-center gap-4 justify-center flex-wrap">
-            <button
-              onClick={goToApp}
-              className="inline-flex items-center gap-[9px] text-[14px] font-medium text-white px-[30px] py-[14px] rounded-lg border-none cursor-pointer active:scale-[0.97]"
-              style={{ background: EMBER, transition: 'transform 160ms cubic-bezier(0.23, 1, 0.32, 1)' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)' }}
-            >
-              Post a Campaign
-              <ArrowRight />
-            </button>
-            <button
-              onClick={() => scrollTo('how-it-works')}
-              className="text-[13px] font-medium bg-transparent border-none cursor-pointer transition-colors duration-200"
-              style={{ color: 'var(--dim)' }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--dim)')}
-            >
-              See a real shortlist ↓
-            </button>
-          </div>
+          <HeroActions path="/advertiser" ctaLabel="Post a Campaign" secondaryLabel="See a real shortlist ↓" />
         </div>
       </section>
 
@@ -142,7 +154,7 @@ export default function LandingPage() {
         sub="See a real, campaign-ready shortlist before you pay a cent. After that, one flat price for as many briefs as you need."
         plans={advPlans}
         buttonLabel="Post a Campaign"
-        onCta={goToApp}
+        path="/advertiser"
       />
 
       <Divider />

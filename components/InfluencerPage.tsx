@@ -1,18 +1,11 @@
-'use client'
-
 import Toggle from '@/components/Toggle'
+import HeroActions from '@/components/HeroActions'
 import {
   Divider, Faq, FinalCta, HowItWorks, WhyTruleado,
   type FaqItem, type StepData, type WhyData,
 } from '@/components/Sections'
 
 const EMBER = '#D93D2A'
-
-const ArrowRight = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
 
 const infSteps: StepData[] = [
   { n: '01', art: 'upload', tag: 'Upload', title: 'Share a few screenshots.', body: 'Drop in screenshots of your Instagram, TikTok, or YouTube analytics. No API connections, no passwords, no access to your accounts — the pictures are genuinely all we need to get started.' },
@@ -35,17 +28,24 @@ const infFaq: FaqItem[] = [
   { q: 'What happens after I say yes to a deal?', a: 'We introduce you to the brand with everything already agreed — scope, deliverables, and payment. You create the content; the logistics are handled.' },
 ]
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: infFaq.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 export default function InfluencerPage() {
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-
-  const goToApp = () => {
-    const isDev = window.location.hostname === 'localhost'
-    window.location.href = isDev ? 'http://localhost:3001/influencer' : 'https://app.truleado.com/influencer'
-  }
-
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* ── HERO ── */}
       <section className="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden px-6 pt-[100px] pb-20">
         {/* grid overlay */}
@@ -81,27 +81,7 @@ export default function InfluencerPage() {
             Upload your profile once. We match you, handle the talking, and ping you when a deal is ready.
           </p>
 
-          <div className="flex items-center gap-4 justify-center flex-wrap">
-            <button
-              onClick={goToApp}
-              className="inline-flex items-center gap-[9px] text-[14px] font-medium text-white px-[30px] py-[14px] rounded-lg border-none cursor-pointer active:scale-[0.97]"
-              style={{ background: EMBER, transition: 'transform 160ms cubic-bezier(0.23, 1, 0.32, 1)' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)' }}
-            >
-              Find your next brand deal
-              <ArrowRight />
-            </button>
-            <button
-              onClick={() => scrollTo('how-it-works')}
-              className="text-[13px] font-medium bg-transparent border-none cursor-pointer transition-colors duration-200"
-              style={{ color: 'var(--dim)' }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--dim)')}
-            >
-              See how it works ↓
-            </button>
-          </div>
+          <HeroActions path="/influencer" ctaLabel="Find your next brand deal" secondaryLabel="See how it works ↓" />
         </div>
       </section>
 

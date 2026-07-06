@@ -65,11 +65,25 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
     })),
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://truleado.com' },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://truleado.com/compare' },
+      { '@type': 'ListItem', position: 3, name: `Truleado vs ${competitor.name}`, item: `https://truleado.com/compare/${PREFIX}${competitor.slug}` },
+    ],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* ── HERO ── */}

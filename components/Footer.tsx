@@ -146,16 +146,16 @@ export default function Footer() {
           </h4>
           <ul className="flex flex-col gap-[10px] list-none">
             <li>
-              <a href="#" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
+              <Link href="/privacy" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >Privacy policy</a>
+              >Privacy policy</Link>
             </li>
             <li>
-              <a href="#" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
+              <Link href="/terms" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-              >Terms of service</a>
+              >Terms of service</Link>
             </li>
           </ul>
         </div>
@@ -166,12 +166,12 @@ export default function Footer() {
           © 2026 Truleado. All rights reserved.
         </p>
         <div className="flex gap-5">
-          {['Privacy', 'Terms'].map(t => (
-            <a key={t} href="#" className="text-[13px] font-normal no-underline transition-colors duration-200"
+          {[{ label: 'Privacy', href: '/privacy' }, { label: 'Terms', href: '/terms' }].map(t => (
+            <Link key={t.label} href={t.href} className="text-[13px] font-normal no-underline transition-colors duration-200"
               style={{ color: 'var(--dim)' }}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--muted)')}
               onMouseLeave={e => (e.currentTarget.style.color = 'var(--dim)')}
-            >{t}</a>
+            >{t.label}</Link>
           ))}
         </div>
       </div>
