@@ -102,6 +102,12 @@ export default function Footer() {
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
               >For influencers</Link>
             </li>
+            <li>
+              <Link href="/compare" className="text-[14px] font-normal no-underline transition-colors duration-200" style={{ color: 'var(--muted)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+              >Compare</Link>
+            </li>
           </ul>
         </div>
 
