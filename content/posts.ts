@@ -29,7 +29,7 @@ export const posts: Post[] = [
     audience: 'creators',
     audienceLabel: 'For creators',
     excerpt: 'Most lists of brands that work with micro-influencers give you names and no numbers. This one goes further — into what each brand actually pays, the model they use, and what they look for before they reach out.',
-    coverAlt: 'Illustration of a creator profile card next to a gift box with a rising price tag, representing brands paying micro-influencers.',
+    coverAlt: 'Abstract cover art: gently rising violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -184,7 +184,7 @@ export const posts: Post[] = [
     audience: 'industry',
     audienceLabel: 'For the industry',
     excerpt: 'From Fortune 500 specialists to boutique micro-influencer shops — here are the 10 agencies that consistently deliver results for brands in 2026.',
-    coverAlt: 'Illustration of an organization chart of connected office buildings, representing influencer marketing agencies.',
+    coverAlt: 'Abstract cover art: tightly layered violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -311,7 +311,7 @@ export const posts: Post[] = [
     audience: 'creators',
     audienceLabel: 'For creators',
     excerpt: "From London fashion creators to Scottish lifestyle storytellers — these are the UK micro-influencers delivering real engagement for brands right now.",
-    coverAlt: 'Illustration of a UK map pin next to a phone showing a social feed, representing UK micro-influencers.',
+    coverAlt: 'Abstract cover art: topographic-style violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -424,7 +424,7 @@ export const posts: Post[] = [
     audience: 'advertisers',
     audienceLabel: 'For advertisers',
     excerpt: 'Not all niches are created equal. These 10 categories consistently deliver the best return on micro-influencer spend — and the data explains why.',
-    coverAlt: 'Illustration of an upward-trending line chart with a bar-chart baseline, representing the highest-ROI micro-influencer niches.',
+    coverAlt: 'Abstract cover art: upward-tilting violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -556,7 +556,7 @@ export const posts: Post[] = [
     audience: 'creators',
     audienceLabel: 'For creators',
     excerpt: "Fitness is one of Instagram's most competitive niches — and one of the most brand-deal-rich. These 10 micro-influencers are doing it right, and their playbooks are worth studying.",
-    coverAlt: 'Illustration of a barbell between weight plates with a dumbbell overhead, representing fitness micro-influencers.',
+    coverAlt: 'Abstract cover art: bold high-amplitude violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -703,7 +703,7 @@ export const posts: Post[] = [
     audience: 'advertisers',
     audienceLabel: 'For advertisers',
     excerpt: 'These 10 D2C brands built real businesses on micro-influencer marketing. Here is what they did differently — and what you can steal from each playbook.',
-    coverAlt: 'Illustration of a shopping bag next to a rising growth arrow, representing D2C brands winning with micro-influencer marketing.',
+    coverAlt: 'Abstract cover art: smooth tilted violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -850,7 +850,7 @@ export const posts: Post[] = [
     audience: 'industry',
     audienceLabel: 'For marketers',
     excerpt: 'Between 26% and 72% of marketers say measuring influencer ROI is their biggest challenge. This is the framework and the benchmarks you need to actually do it.',
-    coverAlt: 'Illustration of an analytics dashboard with a rising trend line and data points, representing measuring influencer campaign ROI.',
+    coverAlt: 'Abstract cover art: fine oscillating violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -986,7 +986,7 @@ export const posts: Post[] = [
     audience: 'creators',
     audienceLabel: 'For creators',
     excerpt: 'BeautyTok is not one niche, it is dozens of micro-niches, and small creators are winning them. These 10 beauty micro-influencers show what is actually working in 2026.',
-    coverAlt: 'Illustration of a compact mirror and a makeup brush, representing beauty micro-influencers on TikTok.',
+    coverAlt: 'Abstract cover art: delicate low-amplitude violet contour lines with a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -1133,7 +1133,7 @@ export const posts: Post[] = [
     audience: 'advertisers',
     audienceLabel: 'For advertisers',
     excerpt: 'Brands waste an estimated $1.3 billion a year on influencer fraud alone, and that is before counting the campaigns that fail for entirely avoidable reasons. Here are the 10 mistakes that account for most of it.',
-    coverAlt: 'Illustration of a warning triangle next to a checklist card, representing common influencer marketing mistakes.',
+    coverAlt: 'Abstract cover art: violet contour lines with one tangled, broken line and a single accent mark.',
     blocks: [
       {
         type: 'intro',
@@ -1258,7 +1258,7 @@ export const posts: Post[] = [
     audience: 'creators',
     audienceLabel: 'For creators',
     excerpt: 'Micro-influencers charge anywhere from $100 to $2,500 per post in 2026, and the spread is not random. Here is the math brands use to justify their offers, so you can use it first.',
-    coverAlt: 'Illustration of an invoice card next to a price tag on a scale, representing how micro-influencers should set their rates.',
+    coverAlt: 'Abstract cover art: an ascending step-line over soft violet contour waves with a single accent mark.',
     blocks: [
       {
         type: 'intro',
