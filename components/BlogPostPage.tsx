@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Post, Block } from '@/content/posts'
 import { FinalCta, Divider } from '@/components/Sections'
+import BlogCoverArt from '@/components/BlogCoverArt'
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -180,6 +181,13 @@ export default function BlogPostPage({ post }: { post: Post }) {
             <span style={{ color: 'var(--line2)' }}>·</span>
             {post.readMinutes} min read
           </div>
+
+          <BlogCoverArt
+            slug={post.slug}
+            alt={post.coverAlt}
+            className="w-full h-[220px] max-[560px]:h-[160px] rounded-2xl mt-10"
+            style={{ border: '1px solid var(--line)' }}
+          />
         </div>
       </section>
 

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { posts } from '@/content/posts'
+import BlogCoverArt from '@/components/BlogCoverArt'
 
 const filters = [
   { key: 'all', label: 'All' },
@@ -74,7 +75,7 @@ export default function BlogIndexPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="block no-underline p-7 rounded-xl transition-transform duration-200"
+                className="block no-underline rounded-xl overflow-hidden transition-transform duration-200"
                 style={{ background: 'var(--bg2)', border: '1px solid var(--line)' }}
                 onMouseEnter={e => {
                   e.currentTarget.style.borderColor = 'var(--line2)'
@@ -85,24 +86,28 @@ export default function BlogIndexPage() {
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}
               >
-                <span
-                  className="inline-flex items-center rounded-full px-3 py-[4px] text-[11px] font-semibold tracking-[0.08em] uppercase"
-                  style={{ background: 'var(--bg3)', color: 'var(--acc)', border: '1px solid var(--line)' }}
-                >
-                  {post.audienceLabel}
-                </span>
+                <BlogCoverArt slug={post.slug} alt={post.coverAlt} className="w-full h-[140px]" />
 
-                <h3 className="font-semibold text-[17px] leading-[1.35] mt-3 mb-3" style={{ color: 'var(--fg)' }}>
-                  {post.title}
-                </h3>
+                <div className="p-7">
+                  <span
+                    className="inline-flex items-center rounded-full px-3 py-[4px] text-[11px] font-semibold tracking-[0.08em] uppercase"
+                    style={{ background: 'var(--bg3)', color: 'var(--acc)', border: '1px solid var(--line)' }}
+                  >
+                    {post.audienceLabel}
+                  </span>
 
-                <p className="text-[14px] leading-[1.7] line-clamp-3" style={{ color: 'var(--dim)' }}>
-                  {post.excerpt}
-                </p>
+                  <h3 className="font-semibold text-[17px] leading-[1.35] mt-3 mb-3" style={{ color: 'var(--fg)' }}>
+                    {post.title}
+                  </h3>
 
-                <div className="flex items-center justify-between mt-5">
-                  <p className="text-[12px]" style={{ color: 'var(--dim)' }}>{post.readMinutes} min read</p>
-                  <p className="text-[12px]" style={{ color: 'var(--dim)' }}>{formatDate(post.publishedAt)}</p>
+                  <p className="text-[14px] leading-[1.7] line-clamp-3" style={{ color: 'var(--dim)' }}>
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between mt-5">
+                    <p className="text-[12px]" style={{ color: 'var(--dim)' }}>{post.readMinutes} min read</p>
+                    <p className="text-[12px]" style={{ color: 'var(--dim)' }}>{formatDate(post.publishedAt)}</p>
+                  </div>
                 </div>
               </Link>
             ))}
