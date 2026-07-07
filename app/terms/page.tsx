@@ -3,7 +3,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: "Truleado's terms of service for advertisers and creators.",
-  alternates: { canonical: 'https://truleado.com/terms' },
+  alternates: { canonical: 'https://www.truleado.com/terms' },
+  openGraph: {
+    title: 'Terms of Service — Truleado',
+    description: "Truleado's terms of service for advertisers and creators.",
+    url: 'https://www.truleado.com/terms',
+  },
 }
 
 export default function TermsPage() {

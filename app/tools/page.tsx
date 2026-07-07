@@ -4,7 +4,13 @@ import ComingSoonPage from '@/components/ComingSoonPage'
 export const metadata: Metadata = {
   title: 'Free Tools — Truleado',
   description: 'Free calculators and tools for influencer marketing campaigns.',
-  alternates: { canonical: 'https://truleado.com/tools' },
+  alternates: { canonical: 'https://www.truleado.com/tools' },
+  openGraph: {
+    title: 'Free Tools — Truleado',
+    description: 'Free calculators and tools for influencer marketing campaigns.',
+    url: 'https://www.truleado.com/tools',
+  },
+  robots: { index: false, follow: true },
 }
 
 export default function ToolsPage() {

@@ -3,7 +3,7 @@ import { competitors } from '@/content/competitors'
 import { posts } from '@/content/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://truleado.com'
+  const base = 'https://www.truleado.com'
   const now = new Date()
 
   const staticPages = [
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages = posts.map(p => ({
     url: `${base}/blog/${p.slug}`,
-    lastModified: new Date(p.publishedAt),
+    lastModified: new Date(Math.min(new Date(p.publishedAt).getTime(), Date.now())),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }))

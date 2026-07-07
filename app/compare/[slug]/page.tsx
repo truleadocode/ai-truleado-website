@@ -25,14 +25,14 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const competitor = competitorFromParam(params.slug)
   if (!competitor) return {}
 
-  const title = `Truleado vs ${competitor.name}: Pricing & Feature Comparison (2026)`
+  const title = `Truleado vs ${competitor.name}: Pricing & Features`
   const description = `How Truleado compares to ${competitor.name} on pricing, features, and who each is best for — with a live cost calculator.`
 
   return {
     title,
     description,
-    alternates: { canonical: `https://truleado.com/compare/${PREFIX}${competitor.slug}` },
-    openGraph: { title, description, type: 'website' },
+    alternates: { canonical: `https://www.truleado.com/compare/${PREFIX}${competitor.slug}` },
+    openGraph: { title, description, type: 'website', url: `https://www.truleado.com/compare/${PREFIX}${competitor.slug}` },
   }
 }
 
@@ -69,9 +69,9 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://truleado.com' },
-      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://truleado.com/compare' },
-      { '@type': 'ListItem', position: 3, name: `Truleado vs ${competitor.name}`, item: `https://truleado.com/compare/${PREFIX}${competitor.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.truleado.com' },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://www.truleado.com/compare' },
+      { '@type': 'ListItem', position: 3, name: `Truleado vs ${competitor.name}`, item: `https://www.truleado.com/compare/${PREFIX}${competitor.slug}` },
     ],
   }
 

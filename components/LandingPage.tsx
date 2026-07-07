@@ -71,7 +71,7 @@ const softwareAppJsonLd = {
   name: 'Truleado',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
-  url: 'https://truleado.com',
+  url: 'https://www.truleado.com',
   description: 'AI influencer marketing platform that matches brands with pre-briefed micro and nano creators. Post a campaign brief, get a shortlist of creators who already said yes.',
   offers: [
     {
@@ -90,7 +90,7 @@ const softwareAppJsonLd = {
       description: 'Unlimited campaign briefs per month. Cancel anytime.',
     },
   ],
-  provider: { '@id': 'https://truleado.com/#organization' },
+  provider: { '@id': 'https://www.truleado.com/#organization' },
 }
 
 export default function LandingPage() {

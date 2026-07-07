@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const HOST = 'truleado.com'
+const HOST = 'www.truleado.com'
 const KEY_FILE = '51ab880985d44a1b9bb4ea9031ede6db.txt'
 const KEY = readFileSync(join(__dirname, '..', 'public', KEY_FILE), 'utf-8').trim()
 const KEY_LOCATION = `https://${HOST}/${KEY_FILE}`

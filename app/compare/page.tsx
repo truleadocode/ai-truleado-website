@@ -7,15 +7,20 @@ import { Eyebrow } from '@/components/Sections'
 export const metadata: Metadata = {
   title: 'Truleado Comparisons — See How We Stack Up',
   description: 'Compare Truleado to other AI influencer marketing agents on pricing, features, and fit.',
-  alternates: { canonical: 'https://truleado.com/compare' },
+  alternates: { canonical: 'https://www.truleado.com/compare' },
+  openGraph: {
+    title: 'Truleado Comparisons — See How We Stack Up',
+    description: 'Compare Truleado to other AI influencer marketing agents on pricing, features, and fit.',
+    url: 'https://www.truleado.com/compare',
+  },
 }
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://truleado.com' },
-    { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://truleado.com/compare' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.truleado.com' },
+    { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://www.truleado.com/compare' },
   ],
 }
 

@@ -20,19 +20,19 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://truleado.com'),
+  metadataBase: new URL('https://www.truleado.com'),
   title: {
     default: 'Truleado — AI Influencer Marketing for Micro & Nano Creators',
     template: '%s | Truleado',
   },
   description: 'AI influencer marketing platform. Post one brief, get a campaign-ready shortlist of micro and nano creators who already said yes. No cold outreach, no spreadsheets.',
   keywords: ['influencer marketing platform', 'micro influencer', 'nano influencer', 'AI influencer matching', 'UGC creators', 'influencer campaign management'],
-  authors: [{ name: 'Truleado', url: 'https://truleado.com' }],
+  authors: [{ name: 'Truleado', url: 'https://www.truleado.com' }],
   creator: 'Truleado',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://truleado.com',
+    url: 'https://www.truleado.com',
     siteName: 'Truleado',
     title: 'Truleado — AI Influencer Marketing',
     description: 'Post one brief. Get a campaign-ready shortlist of micro and nano creators who already said yes.',
@@ -55,13 +55,13 @@ const organizationJsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://truleado.com/#organization',
+      '@id': 'https://www.truleado.com/#organization',
       name: 'Truleado',
-      url: 'https://truleado.com',
-      logo: 'https://truleado.com/logo-mark-t-tile.png',
+      url: 'https://www.truleado.com',
+      logo: 'https://www.truleado.com/logo-mark-t-tile.png',
       description: 'AI influencer marketing platform that matches brands with micro and nano creators using AI-powered campaign matching and automated outreach.',
       foundingDate: '2024',
-      founder: { '@type': 'Person', name: 'Peter Hall', url: 'https://www.linkedin.com/in/hall-peter/' },
+      founder: { '@type': 'Person', '@id': 'https://www.truleado.com/#founder', name: 'Peter Hall', url: 'https://www.linkedin.com/in/hall-peter/' },
       sameAs: [
         'https://www.instagram.com/truleado/',
         'https://x.com/truleado',
@@ -72,13 +72,13 @@ const organizationJsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://truleado.com/#website',
-      url: 'https://truleado.com',
+      '@id': 'https://www.truleado.com/#website',
+      url: 'https://www.truleado.com',
       name: 'Truleado',
-      publisher: { '@id': 'https://truleado.com/#organization' },
+      publisher: { '@id': 'https://www.truleado.com/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://truleado.com/compare?q={search_term_string}',
+        target: 'https://www.truleado.com/compare?q={search_term_string}',
         'query-input': 'required name=search_term_string',
       },
     },

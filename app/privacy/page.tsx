@@ -3,7 +3,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How Truleado collects, uses, and protects your data.',
-  alternates: { canonical: 'https://truleado.com/privacy' },
+  alternates: { canonical: 'https://www.truleado.com/privacy' },
+  openGraph: {
+    title: 'Privacy Policy — Truleado',
+    description: 'How Truleado collects, uses, and protects your data.',
+    url: 'https://www.truleado.com/privacy',
+  },
 }
 
 export default function PrivacyPage() {
