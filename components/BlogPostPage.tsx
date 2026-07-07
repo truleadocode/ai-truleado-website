@@ -185,7 +185,7 @@ export default function BlogPostPage({ post }: { post: Post }) {
           <BlogCoverArt
             slug={post.slug}
             alt={post.coverAlt}
-            className="w-full h-[220px] max-[560px]:h-[160px] rounded-2xl mt-10"
+            className="w-[420px] max-w-full h-[230px] max-[560px]:h-[190px] rounded-2xl mt-10 mx-auto"
             style={{ border: '1px solid var(--line)' }}
           />
         </div>
