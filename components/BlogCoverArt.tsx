@@ -136,6 +136,45 @@ function RatesArt({ className }: CoverArtProps) {
   )
 }
 
+function FoodArt({ className }: CoverArtProps) {
+  return (
+    <Frame className={className}>
+      <g transform="rotate(4 200 110)">
+        <path d="M-20 55 Q90 95 200 60 T440 75" strokeWidth="1.3" opacity="0.88" />
+        <path d="M-20 90 Q90 130 200 95 T440 110" strokeWidth="1.3" opacity="0.62" />
+        <path d="M-20 125 Q90 165 200 130 T440 145" strokeWidth="1.3" opacity="0.4" />
+        <path d="M-20 160 Q90 200 200 165 T440 180" strokeWidth="1.3" opacity="0.24" />
+      </g>
+      <circle cx="200" cy="62" r="4.5" style={accentFill} />
+    </Frame>
+  )
+}
+
+function BriefArt({ className }: CoverArtProps) {
+  return (
+    <Frame className={className}>
+      <path d="M-20 50 Q210 42 460 50" strokeWidth="1.2" opacity="0.9" />
+      <path d="M-20 82 Q210 74 460 82" strokeWidth="1.2" opacity="0.72" />
+      <path d="M-20 114 Q210 106 460 114" strokeWidth="1.2" opacity="0.55" />
+      <path d="M-20 146 Q210 138 460 146" strokeWidth="1.2" opacity="0.38" />
+      <path d="M-20 178 Q210 170 460 178" strokeWidth="1.2" opacity="0.22" />
+      <circle cx="322" cy="45" r="4.5" style={accentFill} />
+    </Frame>
+  )
+}
+
+function UgcArt({ className }: CoverArtProps) {
+  return (
+    <Frame className={className}>
+      <path d="M-20 55 Q120 55 200 110 T440 165" strokeWidth="1.3" opacity="0.85" />
+      <path d="M-20 90 Q120 90 200 128 T440 190" strokeWidth="1.3" opacity="0.5" />
+      <path d="M-20 165 Q120 165 200 110 T440 55" strokeWidth="1.3" opacity="0.85" />
+      <path d="M-20 190 Q120 190 200 128 T440 90" strokeWidth="1.3" opacity="0.5" />
+      <circle cx="200" cy="110" r="4.5" style={accentFill} />
+    </Frame>
+  )
+}
+
 const ART: Record<string, React.ComponentType<CoverArtProps>> = {
   'brands-that-pay-micro-influencers-best': BrandsArt,
   'top-influencer-marketing-agencies-2026': AgenciesArt,
@@ -147,6 +186,9 @@ const ART: Record<string, React.ComponentType<CoverArtProps>> = {
   'top-beauty-micro-influencers-tiktok-2026': BeautyArt,
   'top-influencer-marketing-mistakes-to-avoid': MistakesArt,
   'how-to-set-your-rates-micro-influencer-2026': RatesArt,
+  'top-food-recipe-micro-influencers-tiktok-2026': FoodArt,
+  'top-influencer-campaign-brief-templates-that-convert': BriefArt,
+  'ugc-vs-influencer-marketing-difference-and-when-to-use-each': UgcArt,
 }
 
 export default function BlogCoverArt({

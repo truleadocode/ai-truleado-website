@@ -1336,6 +1336,379 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: 'top-food-recipe-micro-influencers-tiktok-2026',
+    title: 'Top 10 Food and Recipe Micro-Influencers on TikTok',
+    subtitle: 'The creators turning weeknight cooking into deals, and why saves matter more than likes in 2026',
+    publishedAt: '2026-07-07',
+    readMinutes: 8,
+    audience: 'creators',
+    audienceLabel: 'For creators',
+    excerpt: 'Food TikTok is not one niche, it is a dozen: budget cooking, chef technique, cultural cuisine, ASMR baking. These 10 micro-influencers show what is converting brand attention into deals in 2026.',
+    coverAlt: 'Abstract cover art: warm, gently rolling violet contour lines with a single accent mark.',
+    blocks: [
+      {
+        type: 'intro',
+        text: 'Food is one of the biggest categories on TikTok, and it is also one of the most fragmented. There is no single "food creator" archetype anymore: there is budget-meal content, chef-trained technique breakdowns, regional cuisine, ASMR baking, and meal prep for people who hate cooking. Nano and micro creators dominate most of these lanes. Nano-influencers (1K–10K followers) average around 10.3% engagement on TikTok, and TikTok\'s February 2026 algorithm update started weighting saves and shares over likes, which rewards exactly the kind of practical, save-worthy recipe content small creators specialize in. Here are 10 food and recipe micro-influencers worth knowing, and what each one shows about what is working right now.',
+      },
+      {
+        type: 'callout',
+        text: 'A note on the numbers below: follower counts and rate ranges are estimates based on public profile data and 2026 industry benchmarks for TikTok food micro-influencers. Food generally commands 0.8–1x standard influencer rates, high views but lower direct purchase intent than categories like beauty or finance, so per-post pricing tends to sit lower than other niches at the same follower count. Actual deal terms vary with usage rights, exclusivity, and whether a brand wants a single organic post or a licensed content package.',
+      },
+      {
+        type: 'h2',
+        text: 'The 10 Food and Recipe Micro-Influencers to Know Right Now',
+      },
+      {
+        type: 'brand',
+        rank: 1,
+        name: '@tasteofissa',
+        niche: 'Everyday home cooking and recipe development',
+        model: 'Accessible, camera-forward recipe content with a following of roughly 96,500',
+        rate: '$400–$1,200 per TikTok video',
+        applyTip: 'Being just under six figures in followers puts you at the top of the micro tier, close to the pricing power of a small macro creator, without losing the trust advantage of a niche audience. If you are approaching that range, start pricing like it and stop anchoring to nano-tier rates.',
+        body: 'Tasteofissa built an audience of about 96,500 on recipes that read as genuinely doable, not aspirational cooking-show content. That distinction matters commercially: brands buying "make this tonight" content pay for creators whose audience actually cooks along, not just watches. At the top of the micro range, this kind of creator sits in a pricing sweet spot, big enough to matter, small enough that engagement has not collapsed.',
+      },
+      {
+        type: 'brand',
+        rank: 2,
+        name: 'Jennie Duncan',
+        niche: 'Family meal prep and weeknight dinners',
+        model: 'Batch-cooking and family-of-four portioning content',
+        rate: '$300–$800 per video',
+        applyTip: 'Meal-prep content converts differently than entertainment cooking: it drives purchase intent for specific ingredients and kitchen tools, not just brand awareness. If your content shows a shopping list or a specific product mid-recipe, say that explicitly to CPG and grocery brands. It is a stronger pitch than general reach.',
+        body: "Jennie Duncan's content solves a specific, recurring problem: what to cook for a family on a weeknight without repeating the same five meals. That utility-first framing is why meal-kit services, grocery brands, and kitchen appliance companies actively seek creators like her. She is not selling a lifestyle. She is selling a solved logistics problem, which is a much easier thing for a brand to attach a product to.",
+      },
+      {
+        type: 'brand',
+        rank: 3,
+        name: '@cookingformysoul',
+        niche: 'Comfort food and soul food',
+        model: 'Culturally rooted comfort cooking with strong personal narrative',
+        rate: '$250–$700 per video',
+        applyTip: 'Cultural specificity is a rate lever, not a limitation. Creators who lean into a specific culinary tradition, rather than generalizing into "comfort food," attract brands that are actively trying to reach that community authentically. Do not water down the specificity to seem more broadly marketable.',
+        body: 'Cookingformysoul pairs recipes with real family history and cultural context, which turns each video into more than a tutorial. Brands working with creators in this lane are usually trying to reach a specific community credibly, something a generic lifestyle creator cannot do regardless of follower count. That specificity is the entire value proposition, and it should be priced and pitched as such.',
+      },
+      {
+        type: 'brand',
+        rank: 4,
+        name: 'Lemons & Zest',
+        niche: 'Bright, healthy, quick recipes',
+        model: 'Fresh-ingredient-forward content built for the save button',
+        rate: '$300–$900 per video',
+        applyTip: "Content built to be saved and re-cooked later, not just watched once, is exactly what TikTok's 2026 ranking changes reward. If your videos function as a recipe card people return to, lead with that in your media kit. Saves-per-view is becoming a more persuasive stat to brands than raw view count.",
+        body: "Lemons & Zest built a following on recipes designed to be saved and cooked later rather than just scrolled past, which lines up directly with how TikTok's algorithm now ranks food content. Health-adjacent grocery brands and fresh-ingredient subscription services are natural partners here, since the audience is already primed to act on what they watch instead of just enjoying it passively.",
+      },
+      {
+        type: 'brand',
+        rank: 5,
+        name: '@recipebylayla',
+        niche: 'Simple, no-fuss weeknight recipes',
+        model: 'Short-form, low-edit recipe delivery',
+        rate: '$200–$600 per video',
+        applyTip: 'Low-production, high-clarity content is not a downgrade from polished cooking-show videos, it is a different and often more trusted format. Do not feel pressure to add music, transitions, or voiceover if your straightforward delivery is what built your audience. Brands increasingly brief for exactly this native, unpolished style.',
+        body: 'Recipebylayla keeps production simple: minimal editing, clear steps, no unnecessary flourishes. That stripped-down approach performs well precisely because it reads as trustworthy rather than produced. Brands briefing for TikTok in 2026 are explicitly asking for native, creator-led content over polished advertising, which makes this format a genuine advantage rather than a limitation to fix.',
+      },
+      {
+        type: 'brand',
+        rank: 6,
+        name: '@veuxdochef',
+        niche: 'Chef-trained technique and plating',
+        model: 'Technical cooking education from a trained chef, around 15,600 followers',
+        rate: '$150–$450 per video',
+        applyTip: 'Formal culinary training is a credibility signal worth leading with, the same way a licensed esthetician outperforms a generalist beauty account. If you trained professionally, put that in your first outreach line. Brands selling kitchen tools or premium ingredients pay more for technical credibility than for follower count alone.',
+        body: 'Veuxdochef teaches real technique, knife work, plating, timing, rather than just showing finished dishes. That instructional depth makes the account a strong fit for kitchen equipment and specialty ingredient brands that need a creator who can demonstrate a product is actually good, not just film it. Technical trust is a harder thing to fake than aesthetic appeal, which is exactly why it commands a premium.',
+      },
+      {
+        type: 'brand',
+        rank: 7,
+        name: '@chefnigelmoses',
+        niche: 'Professional chef, restaurant-grade technique',
+        model: 'Elevated home cooking from a working chef, around 11,400 followers',
+        rate: '$150–$400 per video',
+        applyTip: 'Restaurant experience translates into a specific pitch angle: "restaurant technique, home kitchen equipment." Brands selling anything from cookware to specialty proteins want that bridge between professional credibility and an achievable home setup. Make that bridge explicit rather than assuming brands will infer it.',
+        body: 'Chefnigelmoses brings professional kitchen technique into a home-cooking format, which is a genuinely useful bridge for brands. A working chef endorsing a home cookware line reads as far more credible than a generalist creator doing the same thing, and at just over 11,000 followers, the account still carries a nano-tier price with a chef-tier credibility premium.',
+      },
+      {
+        type: 'brand',
+        rank: 8,
+        name: '@somsthaicooking',
+        niche: 'Thai home cooking',
+        model: 'Regional cuisine content, around 10,800 followers',
+        rate: '$100–$350 per video',
+        applyTip: 'Regional and diaspora cuisine creators are undervalued relative to the demand from brands trying to reach specific cultural food markets authentically. If you cook a specific regional cuisine, do not generalize your positioning into "Asian food" or "international cooking." The narrower framing is the differentiator brands are actually looking for.',
+        body: 'Somsthaicooking teaches Thai recipes with a simple, direct ethos: cook along or do not waste the ingredients. That practical framing, paired with genuine regional authenticity, makes the account valuable to Asian grocery brands, specialty sauce and paste brands, and kitchen tool companies trying to reach home cooks who want to make regional dishes correctly rather than a Westernized version of them.',
+      },
+      {
+        type: 'brand',
+        rank: 9,
+        name: 'Budget cooking creators (broke-and-fed-well niche)',
+        niche: 'Dollar-store and low-budget meal content',
+        model: 'Cost-per-meal breakdowns and receipt-style content',
+        rate: '$150–$500 per video',
+        applyTip: 'If you show your actual grocery total per meal, that specificity is the hook, not a detail to gloss over. Budget-cooking creators who state exact costs consistently outperform vague "affordable eats" framing, and brands in this space brief specifically for receipt-style proof, not aspirational styling.',
+        body: 'Budget cooking is one of the fastest-growing food sub-niches on TikTok as cost-of-living content performs well across nearly every platform. Creators who show real per-meal costs, not just "affordable" as a vibe, build audiences that trust the numbers and act on them. Grocery chains, discount retailers, and value-focused CPG brands are actively seeking this exact format for 2026 campaigns.',
+      },
+      {
+        type: 'brand',
+        rank: 10,
+        name: 'ASMR baking and dessert creators',
+        niche: 'Sensory-forward baking content',
+        model: 'Sound-driven dessert and baking process videos',
+        rate: '$150–$450 per video',
+        applyTip: 'ASMR food content lives or dies on raw audio quality, not visual polish. A cheap external microphone is a better investment than better lighting if you are building in this niche. Brands buying ASMR content specifically brief for crisp sound, so treat audio gear as a line item, not an afterthought.',
+        body: 'ASMR baking content, sizzling, cracking, pouring sounds paired with close-up shots of melting or rising dough, consistently drives high save and share rates because it triggers an immediate sensory response. Baking and dessert brands, along with kitchen appliance companies, use this format specifically because it sells the sensory experience of a product, something a standard talking-head review cannot replicate.',
+      },
+      {
+        type: 'ratetable',
+        rows: [
+          { platform: 'Nano food creator (1K–10K followers)', range: '$50–$400 per video' },
+          { platform: 'Micro food creator (10K–100K followers)', range: '$200–$2,500 per video' },
+          { platform: 'Food/recipe rate multiplier vs. category average', range: '0.8–1x standard rate' },
+          { platform: 'TikTok nano-influencer average engagement rate', range: '~10.3%' },
+          { platform: 'TikTok mega-influencer average engagement rate (for comparison)', range: '~1–2%' },
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'What Brands Are Actually Buying',
+      },
+      {
+        type: 'p',
+        text: "None of the 10 creators above are chasing millions of followers, and that is exactly why brands are paying attention to them. TikTok's 2026 ranking changes reward content that gets saved and shared, recipes people actually intend to cook, not content that gets a passive like and disappears. A creator with 12,000 followers and a save rate that proves people are coming back to actually make the dish is a better bet for a grocery or CPG brand than a much larger account with high views and low follow-through.",
+      },
+      {
+        type: 'p',
+        text: 'If you are building a food or recipe presence toward brand deals, the takeaway is not to copy any single creator here. It is to get specific: pick a lane, budget cooking, regional cuisine, chef technique, ASMR baking, and own it clearly enough that a brand searching for that exact niche finds you first. Generic "I cook food" content competes with everyone. A defined niche competes with almost no one. Platforms like Truleado exist to connect that specificity directly with brands looking for it, without you having to cold-pitch your way into an inbox.',
+      },
+    ],
+  },
+  {
+    slug: 'top-influencer-campaign-brief-templates-that-convert',
+    title: 'Top 10 Influencer Campaign Brief Templates That Convert',
+    subtitle: 'Ten brief structures for ten campaign goals, plus the 2026 disclosure rules that make your brief a legal document',
+    publishedAt: '2026-07-07',
+    readMinutes: 10,
+    audience: 'advertisers',
+    audienceLabel: 'For advertisers',
+    excerpt: 'Not every campaign needs the same brief. Here are 10 brief structures built for different goals, from performance to ambassador programs, plus the FTC and AI disclosure rules that now make your brief evidence.',
+    coverAlt: 'Abstract cover art: precise, evenly stacked violet contour lines with a single accent mark.',
+    blocks: [
+      {
+        type: 'intro',
+        text: 'Most brands write one influencer brief template and reuse it for every campaign, regardless of whether the goal is awareness, conversion, or a long-term ambassador relationship. That is a mistake. A brief built for a performance campaign, unique promo codes, CPA targets, hard deadlines, will actively hurt a brand-awareness campaign that needs creative freedom and narrative space. Below are 10 brief structures, each built for a specific campaign type, plus the compliance requirements that changed in 2026 and now apply to all of them.',
+      },
+      {
+        type: 'callout',
+        text: 'Regulators now treat the brief itself as evidence. If a brief did not require a disclosure and the creator skipped it, the brand owns that omission. If the brief required disclosure and the creator ignored it, the brand is still liable for failing to audit the post. Every template below assumes disclosure requirements are non-negotiable, not optional boilerplate at the bottom of the document.',
+      },
+      {
+        type: 'h2',
+        text: '1. The Performance Brief',
+      },
+      {
+        type: 'p',
+        text: 'Built for campaigns where the primary goal is measurable conversion. The brief specifies a single primary KPI, cost per acquisition, click-through rate, or watch time, not a vague mix of "engagement and awareness." It requires a unique UTM link and a unique promo code per creator, a hard CTA with a specific landing page, and a defined attribution window. Creative guidance stays light: a hook requirement and a CTA placement, nothing scripted. Performance briefs fail most often when brands try to add awareness language on top of a conversion structure, diluting the one metric that actually matters.',
+      },
+      {
+        type: 'h2',
+        text: '2. The Awareness Brief',
+      },
+      {
+        type: 'p',
+        text: 'Built around reach, impressions, and brand lift rather than direct response. This template leads with brand story and positioning instead of a hard CTA, gives creators wide creative latitude, and defines success through completion rate and sentiment rather than clicks. The brief should explicitly tell creators not to hard-sell. An awareness brief that reads like a performance brief, product-forward, discount-code-heavy, undercuts the trust-building the campaign is actually paying for.',
+      },
+      {
+        type: 'h2',
+        text: '3. The UGC Content Brief',
+      },
+      {
+        type: 'p',
+        text: 'This is not a distribution brief, it is an asset-production brief. The deliverable is the content itself, not the creator\'s organic reach, so the brief needs to specify exact usage rights (which channels, for how long, paid or organic), shot list requirements, aspect ratios for repurposing, and a review-and-revision process. Because you are buying an asset rather than access to an audience, pricing and rights language matter more here than reach numbers. Get usage rights in writing before the shoot, not after you have already used the content in a paid ad.',
+      },
+      {
+        type: 'h2',
+        text: '4. The Product Launch Brief',
+      },
+      {
+        type: 'p',
+        text: 'Built around a hard date and an embargo. This template needs an explicit embargo clause (no posting before X date, with real consequences for early posts), synchronized messaging across every creator in the cohort, and a tight review window since launch content often needs faster turnaround than evergreen campaigns. Include a contingency line for launch delays, since product launches slip more often than brands plan for, and a brief without a contingency clause turns a delay into a scramble to re-brief every creator individually.',
+      },
+      {
+        type: 'h2',
+        text: '5. The TikTok Shop / Affiliate Brief',
+      },
+      {
+        type: 'p',
+        text: 'Commission-based rather than flat-fee, so the brief needs to spell out the commission structure, cookie window, and how creators access and use their affiliate link inside their content. Unlike a performance brief, the CTA here is transactional and immediate: "shop now" language and in-video shop tags are expected, not optional add-ons. Because payment is tied directly to sales, this brief should also cover what happens with returns and refunds against commission, a detail brands frequently leave out until a creator asks.',
+      },
+      {
+        type: 'h2',
+        text: '6. The Ambassador / Retainer Brief',
+      },
+      {
+        type: 'p',
+        text: 'Built for ongoing relationships rather than one-off posts. This template defines a posting cadence over months, not a single deadline, and should include a brand-voice guide the creator can reference repeatedly rather than a one-time set of instructions. It needs clear renewal or exit terms and a review cadence, monthly or quarterly, so both sides can adjust scope without renegotiating from scratch. Ambassador briefs that skip a defined check-in schedule tend to drift, with neither side sure whether the relationship is still working.',
+      },
+      {
+        type: 'h2',
+        text: '7. The Seeding / Gifting Brief',
+      },
+      {
+        type: 'p',
+        text: 'No payment, no guaranteed post, so the brief needs to be explicit that posting is optional and unpaid, framed as a genuine option rather than an implied obligation. It should include product details worth mentioning organically, no deadline pressure, and a soft ask rather than deliverable language. The most common mistake here is writing a gifting brief with performance-brief expectations attached, brands that expect guaranteed posts from unpaid product sends are setting themselves up for disappointment and, increasingly, for FTC issues if any expectation of compensation is implied but undocumented.',
+      },
+      {
+        type: 'h2',
+        text: '8. The Event / Activation Brief',
+      },
+      {
+        type: 'p',
+        text: 'Time-boxed around a live event, so the brief needs specific on-site content requirements (a minimum number of Stories, a dedicated feed post, a recap video), a real-time posting expectation rather than a scheduled one, and logistics: Wi-Fi access, a content deadline before the creator leaves the venue, and a point of contact on-site. Event briefs that leave posting timing vague consistently result in content trickling out days later, after the moment, and the campaign relevance, has passed.',
+      },
+      {
+        type: 'h2',
+        text: '9. The Compliance-First Brief',
+      },
+      {
+        type: 'p',
+        text: 'Not a separate campaign type, but a template layer every brief needs in 2026. It must require FTC disclosure language (#ad or #sponsored, placed so it cannot be missed, not buried in a hashtag block), explicit AI disclosure if any AI tool was used to generate or substantially modify the content, since the FTC treats undisclosed AI-assisted or virtual endorsements as inherently deceptive, and captioning or alt-text requirements, which are now standard expectations rather than nice-to-haves. If your brief supplies specific product claims or mandates particular language about efficacy, regulators treat that content as the brand\'s own advertising, so review any brand-provided script or claim as carefully as you would a paid ad.',
+      },
+      {
+        type: 'h2',
+        text: '10. The Creative-Freedom Brief',
+      },
+      {
+        type: 'p',
+        text: "The template most brands need but few use. Instead of scripting captions and dictating shot-by-shot direction, this brief provides context, brand story, audience insight, key message, and a short list of do's and don'ts, then leaves execution to the creator. Over-specification is one of the most common briefing mistakes: brands that script everything produce content that reads as an ad rather than a genuine recommendation, which is the opposite of what influencer marketing is supposed to buy. The best-performing briefs in 2026 prioritize context over control and let format, tone, and delivery stay creator-led.",
+      },
+      {
+        type: 'ratetable',
+        rows: [
+          { platform: 'Performance brief — primary KPI', range: 'CPA, CTR, or watch time' },
+          { platform: 'Awareness brief — primary KPI', range: 'Reach, completion rate, brand lift' },
+          { platform: 'UGC brief — primary deliverable', range: 'Owned content asset, not reach' },
+          { platform: 'Affiliate/Shop brief — payment model', range: 'Commission against tracked sales' },
+          { platform: 'Ambassador brief — typical cadence', range: 'Monthly or quarterly review cycle' },
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'The Brief Is the Campaign',
+      },
+      {
+        type: 'p',
+        text: 'A generic brief produces generic content, or worse, content that technically meets the deliverable but misses the goal entirely because the goal was never actually specified. The fix is not a longer brief. It is a matched brief: performance goals get performance structure, awareness goals get creative latitude, and every brief, regardless of type, carries the 2026 disclosure requirements that regulators now hold brands accountable for.',
+      },
+      {
+        type: 'p',
+        text: 'Most teams do not need 10 different documents, they need one flexible template with the goal-specific sections above swapped in based on campaign type. Platforms like Truleado build the brief directly into the campaign workflow, so creators see a structured, goal-matched brief before they ever say yes, which is a large part of why the shortlist you get back already understands what you are asking for.',
+      },
+    ],
+  },
+  {
+    slug: 'ugc-vs-influencer-marketing-difference-and-when-to-use-each',
+    title: "UGC vs Influencer Marketing: What's the Difference and When to Use Each",
+    subtitle: 'One buys a content asset, the other buys audience access. Most brands need both, run as a loop.',
+    publishedAt: '2026-07-07',
+    readMinutes: 8,
+    audience: 'industry',
+    audienceLabel: 'For marketers',
+    excerpt: 'UGC and influencer marketing get lumped together, but they are priced differently, measured differently, and built for different jobs. Here is the actual difference, and the case for running both.',
+    coverAlt: 'Abstract cover art: two interleaved sets of violet contour lines with a single accent mark.',
+    blocks: [
+      {
+        type: 'intro',
+        text: "UGC and influencer marketing are frequently treated as interchangeable, two ways of getting a creator to make a video about your product. They are not the same thing, and the confusion costs brands money. With influencer marketing, you are paying for access to someone else's audience for a limited window. With UGC, you are paying for a content asset that you own and can deploy indefinitely across your own channels. Different product, different pricing model, different measurement, different job to do in the funnel. The influencer marketing industry is on track to hit $40.5 billion in 2026, and the UGC platform market is growing alongside it at roughly $8.5 billion. Both are growing because they solve different problems, not because one is replacing the other.",
+      },
+      {
+        type: 'callout',
+        text: "The shorthand worth remembering: influencers sell distribution, UGC creators sell a deliverable. An influencer's value is tied to their audience and evaporates if you strip out their following. A UGC creator's value is tied to production and performance-driven storytelling skill, and their follower count is close to irrelevant to what you are buying.",
+      },
+      {
+        type: 'h2',
+        text: 'What UGC Actually Is',
+      },
+      {
+        type: 'p',
+        text: "UGC, in the paid-creator sense used across the industry now, means content produced by a creator specifically for a brand to own and run on its own channels: paid ads, product pages, email, organic social. Pricing is based on the deliverable, not the creator's following. The average UGC creator charges around $198 per asset in 2026, and rates typically fall between $100 and $500 per video depending on length, complexity, and usage rights. A 15–30 second video with a simple hook runs $100–$400; a more produced 60-second piece with a stronger hook and structure runs $250–$800. You are buying craft and usage rights, not reach.",
+      },
+      {
+        type: 'h2',
+        text: 'What Influencer Marketing Actually Is',
+      },
+      {
+        type: 'p',
+        text: "Influencer marketing means paying a creator to post to their own audience, on their own channel, where the content lives and performs inside their existing relationship with followers. Pricing is driven by reach and engagement: follower count, engagement rate, platform, and niche all move the number. Mid-tier influencer posts commonly run $1,000 to $10,000 or more, though micro and nano creators, the segment Truleado focuses on, price meaningfully lower while often delivering higher engagement rates than larger accounts. What you are buying is not the video itself, it is introduction to an audience that already trusts the person delivering the message.",
+      },
+      {
+        type: 'h2',
+        text: 'The Core Difference: Asset vs Access',
+      },
+      {
+        type: 'p',
+        text: 'This is the distinction that actually matters for budgeting and strategy. UGC is an asset purchase: you own the file, you can run it as a paid ad indefinitely, and its performance is separable from the creator\'s personal following. Influencer marketing is an access purchase: the value is tied to a specific audience and a specific moment, and once the post cycles out of a creator\'s feed, most of its distribution value is gone unless you have separately negotiated usage rights to reuse it. Confusing the two leads brands to either overpay a UGC creator for reach they were never buying, or underpay an influencer for content they intend to reuse as an ad without licensing it properly.',
+      },
+      {
+        type: 'h2',
+        text: 'Cost and Performance Comparison',
+      },
+      {
+        type: 'p',
+        text: 'On raw cost, UGC runs 30–80% cheaper than a comparable influencer post, and the content can be reused indefinitely across paid and organic channels, as long as usage rights were secured up front. On performance for paid media specifically, UGC-style ads report up to 4x higher click-through rates and up to 50% lower cost-per-click than standard branded ads, and some brands report conversion lifts up to 10x when swapping polished branded creative for native-feeling UGC in performance campaigns. Influencer content, meanwhile, is harder to measure on direct response but consistently outperforms on trust and discovery metrics, brand lift, sentiment, and reach into audiences a brand does not already own.',
+      },
+      {
+        type: 'h2',
+        text: 'When to Use UGC',
+      },
+      {
+        type: 'p',
+        text: 'Use UGC when the job is conversion: paid social ad creative, product page video, email campaigns, landing pages, anywhere you need content that performs on its own merit without borrowed audience trust. UGC is also the right call when you need volume, testing five or ten creative variants against each other is affordable with $150–$400 assets in a way it is not with $2,000 influencer posts, and when you need content fast, since UGC production timelines are typically shorter than coordinating a full influencer campaign.',
+      },
+      {
+        type: 'h2',
+        text: 'When to Use Influencer Marketing',
+      },
+      {
+        type: 'p',
+        text: 'Use influencer marketing when the job is awareness, discovery, or trust-building with an audience you do not already have access to. A new product entering a crowded category benefits more from a trusted creator saying "I use this" to their own following than from a polished ad most people will scroll past. Influencer marketing also wins for anything requiring third-party credibility, reviews, comparisons, "is this worth it" content, where the value is specifically that the message is not coming from the brand itself.',
+      },
+      {
+        type: 'h2',
+        text: 'The Loop: Running Both Together',
+      },
+      {
+        type: 'p',
+        text: 'The highest-performing brands in 2026 are not choosing between the two, they are running them as a loop. Influencers create the initial spike in attention and cultural relevance a brand cannot manufacture on its own. UGC then converts that attention into revenue at the lowest achievable cost per acquisition, often reusing the moment or message the influencer content established, but packaged for paid media performance rather than organic reach. Brands that pick one and ignore the other are leaving either awareness or conversion efficiency on the table.',
+      },
+      {
+        type: 'ratetable',
+        rows: [
+          { platform: 'Average UGC creator rate per asset (2026)', range: '~$198' },
+          { platform: 'UGC video, 15–30 seconds', range: '$100–$400' },
+          { platform: 'UGC video, 60 seconds with hook', range: '$250–$800' },
+          { platform: 'Mid-tier influencer post', range: '$1,000–$10,000+' },
+          { platform: 'UGC cost advantage vs. influencer content', range: '30–80% lower' },
+          { platform: 'UGC ad performance vs. standard branded ads (CTR)', range: 'Up to 4x higher' },
+          { platform: 'UGC ad performance vs. standard branded ads (CPC)', range: 'Up to 50% lower' },
+          { platform: 'Influencer marketing industry size (2026)', range: '~$40.5B' },
+          { platform: 'UGC platform market size (2026)', range: '~$8.5B' },
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Stop Choosing, Start Sequencing',
+      },
+      {
+        type: 'p',
+        text: 'The "UGC vs influencer marketing" framing is a false choice for most brands with real budget behind either. They are not competing line items, they are sequential ones: influencers build the moment, UGC converts it, and treating them as substitutes rather than complements is how brands end up underinvesting in whichever one they picked wrong.',
+      },
+      {
+        type: 'p',
+        text: 'The practical starting point is simple: if your immediate goal is a specific conversion metric, ROAS, CPA, CTR, start with UGC. If your goal is entering a new audience or building credibility you do not currently have, start with influencers, ideally micro and nano creators, where trust per follower runs highest and cost per deal runs lowest. Platforms like Truleado are built specifically for that second lane, connecting brands with micro and nano creators whose audiences convert on trust rather than reach, without the cold outreach that makes influencer sourcing slower and more expensive than it needs to be.',
+      },
+    ],
+  },
 ]
 
 export function getPost(slug: string): Post | undefined {
